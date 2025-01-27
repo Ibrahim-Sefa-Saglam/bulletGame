@@ -69,7 +69,7 @@ public class GunScr : MonoBehaviour
         {
             Vector3 offset = bulletPoint.transform.forward * 0.6f;
             GameObject bulletInstance = Instantiate(bullet, bulletPoint.transform.position + offset, bulletPoint.transform.rotation);
-            bullet_scr bulletInstanceScr = bulletInstance.GetComponent<bullet_scr>();
+            Bullet_scr bulletInstanceScr = bulletInstance.GetComponent<Bullet_scr>();
 
             Debug.Log("gun_scrFireFromClip parameter damage: "+ damage);
             bulletInstanceScr.Initialize(damage,bulletLifetime);  

@@ -3,15 +3,16 @@ using UnityEngine;
 
 public class GameDataTracker : MonoBehaviour
 {
-    private List<float> last10BulletDamages = new List<float>(); // Store the damage of the last 10 bullets
-    private List<float> allBulletDamages = new List<float>();   // Store all delivered bullet damages
-    private List<float> last10PanelTimes = new List<float>();   // Store the panel times of the last 10 bullets
-    private List<float> allPanelTimes = new List<float>();      // Store all panel times
-    private float totalGenerationRate = 0f;  // Total accumulated generation rate
-    private float totalDeliveringRate = 0f;  // Total accumulated delivering rate
-    private int generationCount = 0;        // Count of generation rate updates
-    private int deliveringCount = 0;        // Count of delivering rate updates
-    private float totalTime = 0;
+    public List<float> last10BulletDamages = new List<float>(); // Store the damage of the last 10 bullets
+    public List<float> allBulletDamages = new List<float>();   // Store all delivered bullet damages
+    public List<float> last10PanelTimes = new List<float>();   // Store the panel times of the last 10 bullets
+    public List<float> allPanelTimes = new List<float>();      // Store all panel times
+    public float totalGenerationRate = 0f;  // Total accumulated generation rate
+    public float totalDeliveringRate = 0f;  // Total accumulated delivering rate
+    public int generationCount = 0;        // Count of generation rate updates
+    public int deliveringCount = 0;        // Count of delivering rate updates
+    public float totalTime = 0;
+
 
     private void Update() {
         totalTime += Time.deltaTime;

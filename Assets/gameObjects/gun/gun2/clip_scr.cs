@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Clip_scr : MonoBehaviour
@@ -8,6 +9,7 @@ public class Clip_scr : MonoBehaviour
     public GameObject bullet;
     public GameObject bulletGenerationPoint; 
     public List<float> bulletList = new List<float>();
+    public List<float> cachedList = new List<float>();
     public Transform[] initialPositions;
     private GameObject[] initialBullets = new GameObject[3];
     public float rate;
@@ -36,8 +38,11 @@ public class Clip_scr : MonoBehaviour
                 nextBulletDamage = bulletList[0];
                 bulletList.RemoveAt(0);
                 Debug.Log("clipscr.Update nextBulletDamage: "+ nextBulletDamage);
+
             }
-            else{ nextBulletDamage = Mathf.Floor(Random.Range(1,30.999f));}
+            else{ 
+                nextBulletDamage = cachedList[(int)Mathf.Floor(Random.Range(1,11f))];
+            }
             GenerateClipBullet(bulletGenerationPoint.transform.position,nextBulletDamage);
             lastFireTime = Time.time; // Update last fire time to current time
         }
@@ -46,7 +51,7 @@ public class Clip_scr : MonoBehaviour
     private void OnTriggerEnter(Collider other) { // every time a clipBullet hits, execute FireFromClip
         if(other.gameObject.CompareTag("bullet")){
             Destroy(other.gameObject);
-            float bulletDamage = other.gameObject.GetComponent<bullet_scr>().damage;
+            float bulletDamage = other.gameObject.GetComponent<Bullet_scr>().damage;
             GunScr gunScr = gun.GetComponent<GunScr>();
             Debug.Log("clipscr.OnTriggerEnter/FireFromClip bulletDamage: "+ bulletDamage);
             gunScr.FireFromClip(bulletDamage);
@@ -57,7 +62,7 @@ public class Clip_scr : MonoBehaviour
         
         GameObject bulletInstance = Instantiate(bullet, genPoint, transform.rotation);
         bulletInstance.transform.SetParent(transform);
-        bullet_scr bulletInstanceScr = bulletInstance.GetComponent<bullet_scr>();
+        Bullet_scr bulletInstanceScr = bulletInstance.GetComponent<Bullet_scr>();
         
 
         bulletInstanceScr.Initialize(bulletDamage,5); // generates a bullet at the generation point with arbitrary life

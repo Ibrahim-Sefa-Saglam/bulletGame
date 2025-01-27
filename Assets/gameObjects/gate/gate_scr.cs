@@ -28,7 +28,7 @@ public class GateScript : MonoBehaviour
     [SerializeField]
     private GunScr playerScr;
     [SerializeField]
-    private bullet_scr bulletScr;
+    private Bullet_scr bulletScr;
 
     void Start()
     {        
@@ -55,7 +55,7 @@ public class GateScript : MonoBehaviour
     else if (other.CompareTag("bullet"))
     {
         // Handle bullet collision logic
-        bulletScr = other.GetComponent<bullet_scr>();
+        bulletScr = other.GetComponent<Bullet_scr>();
         BulletCollision(bulletScr.damage); 
         Destroy(other.gameObject);
 

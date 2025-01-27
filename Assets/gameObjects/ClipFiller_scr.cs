@@ -23,7 +23,10 @@ public class ClipFiller_scr : MonoBehaviour
             dataTracker.AddDeliveringRate(1);
 
             float bulletDamage = panelBullet_Scr.damage;
-            if(clipScr.bulletList.Count<100){clipScr.bulletList.Add(bulletDamage);}            
+            clipScr.bulletList.Add(bulletDamage);
+            
+            clipScr.cachedList.Add(bulletDamage);
+            if(clipScr.cachedList.Count>10) clipScr.cachedList.RemoveAt(0);
             Destroy(other.gameObject);
         }
     }

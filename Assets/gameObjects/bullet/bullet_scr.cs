@@ -5,15 +5,17 @@ using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class bullet_scr : MonoBehaviour
+public class Bullet_scr : MonoBehaviour
 {
-    public float damage;
-    public float velocity = 15f;
-    [SerializeField]
-    private float lifetime = 3f;    
+    public GameObject bulletEffect;
     public TextMeshProUGUI  numberText;
     public Collider bulletCollider;
     public Vector3 direction = Vector3.forward;
+
+    [SerializeField]
+    private float lifetime = 3f;    
+    public float damage;
+    public float velocity = 15f;
     private float elapsedTime = 0f;
     // Start is called before the first frame update
     void Start()
@@ -37,10 +39,14 @@ public class bullet_scr : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Destroy the bullet when it collides with something
-        if (collision.collider == bulletCollider)
-        {
-            Destroy(gameObject);
-        }
+            if(collision.gameObject.CompareTag("gate") || collision.gameObject.CompareTag("dummy") ){
+                Vector3 effectPoint = new(transform.position.x,transform.position.y, transform.position.z);
+                Quaternion effectRotation = new(transform.rotation.x,transform.rotation.y, Random.Range(0,180),transform.rotation.w);
+                GameObject effect = Instantiate(bulletEffect,effectPoint,effectRotation);
+                Destroy(effect, 0.05f);
+            }
+            Destroy(gameObject, 0.05f);
+
     }
 
     public void Initialize(float _lifetime)

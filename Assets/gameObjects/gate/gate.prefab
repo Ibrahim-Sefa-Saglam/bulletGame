@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 8545394564989749872}
   m_Layer: 0
   m_Name: Gate
-  m_TagString: Untagged
+  m_TagString: gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -684,6 +684,7 @@ MonoBehaviour:
   hoverAmplitude: 0.3
   hoverFrequency: 3
   playerScr: {fileID: 0}
+  bulletScr: {fileID: 0}
 --- !u!1 &5845920201562117638
 GameObject:
   m_ObjectHideFlags: 0

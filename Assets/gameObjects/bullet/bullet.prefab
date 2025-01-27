@@ -49,12 +49,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70721ded52f9e342af5fbe7f7192ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  velocity: 15
-  lifetime: 2
+  bulletEffect: {fileID: 1770698084934728637, guid: 2a1fa504755980440b60851bba0ad325,
+    type: 3}
   numberText: {fileID: 2780026354452709074}
   bulletCollider: {fileID: 1654709011769798001}
   direction: {x: 0, y: 0, z: 1}
+  lifetime: 2
+  damage: 0
+  velocity: 15
 --- !u!65 &8229700699027686485
 BoxCollider:
   m_ObjectHideFlags: 0
