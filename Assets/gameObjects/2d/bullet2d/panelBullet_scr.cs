@@ -12,18 +12,19 @@ public class PanelBullet_scr : MonoBehaviour
     private bool isCounting = false; // Whether the countdown has started
     private float countdown = 20f;
     public float panelTime = 0;
-
+    public bool isTesting = true;
 
     void Start()
     {   
         rb = GetComponent<Rigidbody>();
         Initialize();
+        this.enabled = isTesting;
     }
 
     // Update is called once per frame
     
     void Update()
-    {
+    {        
         panelTime += Time.deltaTime;
         rb.AddForce(Vector3.up * customGravity, ForceMode.Acceleration);
 

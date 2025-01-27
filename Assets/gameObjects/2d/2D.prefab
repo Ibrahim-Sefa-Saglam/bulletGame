@@ -1401,6 +1401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66220670818410022}
   - component: {fileID: 146894793782254195}
+  - component: {fileID: 4301660748185838828}
   m_Layer: 5
   m_Name: buttonContainer (1)
   m_TagString: Untagged
@@ -1450,6 +1451,27 @@ MonoBehaviour:
   - {fileID: 8929318260583150026}
   bouncerPrefab: {fileID: 6871353535926740912, guid: e4d8bf5ada760aa4eacb762a045e5e56,
     type: 3}
+  bouncers: []
+--- !u!114 &4301660748185838828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8075044925509780799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec7f7ec6689474e4ba5c018da32f7db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BouncerCells:
+  - {fileID: 322592260298674496}
+  - {fileID: 7227276362036234416}
+  - {fileID: 4235756787711404150}
+  - {fileID: 388186478662472466}
+  - {fileID: 8492936357006946020}
+  - {fileID: 8929318260583150026}
+  bouncerPrefab: {fileID: 0}
   bouncers: []
 --- !u!1 &8105874651845000453
 GameObject:
@@ -2675,12 +2697,12 @@ PrefabInstance:
     - target: {fileID: 6172155183313494932, guid: e4d8bf5ada760aa4eacb762a045e5e56,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6172155183313494932, guid: e4d8bf5ada760aa4eacb762a045e5e56,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6172155183313494932, guid: e4d8bf5ada760aa4eacb762a045e5e56,
         type: 3}

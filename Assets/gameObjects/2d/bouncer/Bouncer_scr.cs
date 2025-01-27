@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private GameObject collidedObject; // Stores the object it collides with
     private Camera mainCamera;        // Reference to the main camera
     public TextMeshProUGUI bouncerText;
+    public Renderer blueSphereRenderer;
+    public Color originalColor;
     public bool isDragging = false;    // Indicates if the object is being dragged
     public bool isDropped = false;    // Indicates if the object has been dropped
     public bool dragable = true;    // Indicates if the object has been dropped
@@ -21,6 +24,40 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         origin = transform.position;
         bounceNumber = 1;
         bouncerText.text = "+" + bounceNumber.ToString();
+        originalColor = blueSphereRenderer.material.color;
+    }
+
+    
+     void OnCollisionEnter(Collision other) {
+         if(other.gameObject.CompareTag("bullet")){
+            StartCoroutine(ChangeColorCoroutine());
+        }
+
+    }
+    
+    void OnTriggerEnter(Collider collision)
+    {
+       
+        // Check the tag of the collided object
+        if(collision.gameObject.CompareTag("bouncer")){
+
+            collidedObject = collision.gameObject;
+        }
+        else if (collision.gameObject.CompareTag("bouncerPoint"))
+        {
+            if(collision.gameObject.GetComponent<BouncerPoint_scr>().bouncer != null) {                
+                collidedObject = collision.gameObject.GetComponent<BouncerPoint_scr>().bouncer;
+            }
+            else{
+                collidedObject = collision.gameObject;
+            }
+        }
+        else
+        {
+            
+            collidedObject = null;
+        }
+
     }
 
     // This function is triggered when the pointer is pressed down (mouse click or touch)
@@ -48,7 +85,6 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             transform.position = new Vector3(worldPosition.x, worldPosition.y, origin.z);
         }
     }
-
     // This function is triggered when the pointer is released
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -58,33 +94,7 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         isDropped = true; // this value will be set to false in OnDrop
         OnDrop();
     }
-
-    void OnTriggerEnter(Collider collision)
-    {
-
-
-        // Check the tag of the collided object
-        if(collision.gameObject.CompareTag("bouncer")){
-
-            collidedObject = collision.gameObject;
-        }
-        else if (collision.gameObject.CompareTag("bouncerPoint"))
-        {
-            if(collision.gameObject.GetComponent<BouncerPoint_scr>().bouncer != null) {                
-                collidedObject = collision.gameObject.GetComponent<BouncerPoint_scr>().bouncer;
-            }
-            else{
-                collidedObject = collision.gameObject;
-            }
-        }
-        else
-        {
-            
-            collidedObject = null;
-        }
-
-    }
-
+    
     private void OnDrop()
     {
         if (!isDropped) return;
@@ -131,5 +141,33 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     {
         bounceNumber ++;
         bouncerText.text = sing + bounceNumber.ToString();
+    }
+
+     private IEnumerator ChangeColorCoroutine()
+    {
+        // Transition to white
+        float timeElapsed = 0f;        
+        float duration = 0.1f;
+        Color startColor = blueSphereRenderer.material.color;
+        while (timeElapsed < duration)
+        {
+            blueSphereRenderer.material.color = Color.Lerp(startColor, Color.white, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        blueSphereRenderer.material.color = Color.white;  // Ensure it ends exactly at white
+
+        // Wait for 0.5 seconds
+
+        // Transition back to the original color
+        timeElapsed = 0f;
+        while (timeElapsed < duration)
+        {
+            blueSphereRenderer.material.color = Color.Lerp(Color.white, originalColor, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        blueSphereRenderer.material.color = originalColor;  // Ensure it ends exactly at the original color
+        Debug.Log(6);
     }
 }

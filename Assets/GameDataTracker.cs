@@ -16,7 +16,6 @@ public class GameDataTracker : MonoBehaviour
     private void Update() {
         totalTime += Time.deltaTime;
         if(deliveringCount == 50){
-            Time.timeScale = 0f;
             DisplayData();
         }
 

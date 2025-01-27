@@ -25,7 +25,7 @@ public class BouncerPoint_scr : MonoBehaviour
     bouncer = Instantiate(_bouncer, transform.position, transform.rotation);
     Debug.Log("instantiated");
     
-    bouncer.transform.localScale = new Vector3( 2, 2, bouncer.transform.localScale.z);
+    bouncer.transform.localScale = new Vector3( 2.5f, 2.5f, bouncer.transform.localScale.z);
     
     bouncer.GetComponent<Bouncer_scr>().dragable = false;
     

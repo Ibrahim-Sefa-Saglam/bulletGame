@@ -225,7 +225,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1791018679403426852}
@@ -294,6 +294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
   bouncerText: {fileID: 2619874924214525824}
+  blueSphereRenderer: {fileID: 2314755855034428405}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
   isDragging: 0
   isDropped: 0
   dragable: 1
