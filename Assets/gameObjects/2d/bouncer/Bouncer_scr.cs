@@ -12,6 +12,7 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public TextMeshProUGUI bouncerText;
     public Renderer blueSphereRenderer;
     public Color originalColor;
+    public Color[] colors;
     public bool isDragging = false;    // Indicates if the object is being dragged
     public bool isDropped = false;    // Indicates if the object has been dropped
     public bool dragable = true;    // Indicates if the object has been dropped
@@ -141,6 +142,9 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     {
         bounceNumber ++;
         bouncerText.text = sing + bounceNumber.ToString();
+        if(bounceNumber>5) return;
+        blueSphereRenderer.material.color = colors[(int)bounceNumber-1];
+        originalColor = colors[(int)bounceNumber-1];
     }
 
      private IEnumerator ChangeColorCoroutine()

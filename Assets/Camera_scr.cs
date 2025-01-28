@@ -54,7 +54,6 @@ public class Camera_scr : MonoBehaviour
                 GunScr gunScript = gun.GetComponent<GunScr>();
                 gunScript.enabled = true;
                 clip.GetComponent<Clip_scr>().enabled = true;
-                panelBulletGenerator.GetComponent<panelBulletGenerator_scr>().enabled = false;
 
             }
         }

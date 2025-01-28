@@ -48,7 +48,7 @@ public class DummyGenerator : MonoBehaviour
                 // Instantiate dummy and initialize it
                 GameObject dummy = Instantiate(dummyPrefab, position, Quaternion.identity);
                 dummy.transform.rotation = transform.rotation;
-                dummy.GetComponent<dummy_scr>().Initialize(parameter, maxParameter);
+                dummy.GetComponent<Dummy_scr>().Initialize(parameter, maxParameter);
             }
             // Increase the parameter exponentially for the next row
             parameter *= growthRate;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class dummy_scr : MonoBehaviour
+public class Dummy_scr : MonoBehaviour
 {
     public float dummyVal;
     public float dummyMaxVal = 400;
@@ -35,14 +35,10 @@ public class dummy_scr : MonoBehaviour
     }
     void OnTriggerEnter(Collider other){
 
-    if (other.CompareTag("Player"))
+    if (other.CompareTag("bullet"))
     {
-        PlayerCollision();
-    }
-    else if (other.CompareTag("bullet"))
-    {
-        // Handle bullet collision logic
-        BulletCollision(10); // Example value; replace with actual value as needed
+        // Handle bullet collision logic        
+        BulletCollision(other.gameObject.GetComponent<Bullet_scr>().damage); // Example value; replace with actual value as needed
         Destroy(other.gameObject);
 
     }
@@ -111,5 +107,4 @@ public class dummy_scr : MonoBehaviour
         }
         
     }
-    void PlayerCollision(){}
 }

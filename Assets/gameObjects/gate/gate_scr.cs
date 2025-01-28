@@ -73,6 +73,10 @@ public class GateScript : MonoBehaviour
             if( (playerScr.bulletLifetime + gateVal/50 )<= 0 ) {playerScr.bulletLifetime = 0.1f;}
             else{ playerScr.bulletLifetime += gateVal/50;}
         }
+        foreach (Renderer _renderer in outlineRenderers)
+        {
+            _renderer.material.color = new (1,1,1);
+        }
         Destroy(gameObject);
     }
 

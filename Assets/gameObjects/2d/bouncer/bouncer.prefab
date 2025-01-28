@@ -296,6 +296,12 @@ MonoBehaviour:
   bouncerText: {fileID: 2619874924214525824}
   blueSphereRenderer: {fileID: 2314755855034428405}
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  colors:
+  - {r: 0, g: 0.7137255, b: 0.67058825, a: 0}
+  - {r: 0, g: 0.7137255, b: 0.16470589, a: 0}
+  - {r: 0.25490198, g: 0.84313726, b: 0, a: 0}
+  - {r: 0.9882353, g: 0.9882353, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0, a: 0}
   isDragging: 0
   isDropped: 0
   dragable: 1

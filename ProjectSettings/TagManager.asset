@@ -9,6 +9,7 @@ TagManager:
   - bouncer
   - panel
   - bouncerPoint
+  - gate
   layers:
   - Default
   - TransparentFX

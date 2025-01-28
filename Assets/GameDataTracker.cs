@@ -15,11 +15,7 @@ public class GameDataTracker : MonoBehaviour
 
 
     private void Update() {
-        totalTime += Time.deltaTime;
-        if(deliveringCount == 50){
-            DisplayData();
-        }
-
+        totalTime += Time.deltaTime;        
     }
     // Method to add bullet damage
     public void AddBulletDamage(float damage)
