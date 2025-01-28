@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DummyGenerator : MonoBehaviour
+public class DummyGenerator_scr : MonoBehaviour
 {
     // Public fields for customization in the Inspector
     public GameObject dummyPrefab; // The dummy prefab to instantiate
@@ -27,15 +27,15 @@ public class DummyGenerator : MonoBehaviour
         Vector3 center = generationPoint.transform.position;
 
         // Starting parameter for dummies
-        float parameter = initialParameter;
+        float dummyLifePoint = initialParameter;
         
-        float maxParameter = Mathf.Pow(growthRate, rows-1) * initialParameter;
+        float maxDummyLife = Mathf.Pow(growthRate, rows-1) * initialParameter;
 
         // Calculate the top-left position to align the table center at the generationPoint
         Vector3 rightOfGenerator = generationPoint.transform.right;
         Vector3 forwardOfGenerator = generationPoint.transform.forward;
 
-        Vector3 start = center -( rightOfGenerator*(columnSpacing/2)*columns + forwardOfGenerator*(rowSpacing/2)*rows);
+        Vector3 start = center -( columnSpacing/2 * columns * rightOfGenerator + rowSpacing/2 * rows * forwardOfGenerator);
 
         // Generate rows (vertical) and columns (horizontal)
         for (int row = 0; row < rows; row++)
@@ -43,15 +43,15 @@ public class DummyGenerator : MonoBehaviour
             for (int col = 0; col < columns; col++)
             {
                 // Calculate position for the current dummy
-                Vector3 position = start +  rightOfGenerator * col * columnSpacing + forwardOfGenerator* row * rowSpacing;
+                Vector3 position = start +  col * columnSpacing * rightOfGenerator + row * rowSpacing * forwardOfGenerator;
 
                 // Instantiate dummy and initialize it
                 GameObject dummy = Instantiate(dummyPrefab, position, Quaternion.identity);
                 dummy.transform.rotation = transform.rotation;
-                dummy.GetComponent<Dummy_scr>().Initialize(parameter, maxParameter);
+                dummy.GetComponent<Dummy_scr>().Initialize(dummyLifePoint, maxDummyLife);
             }
             // Increase the parameter exponentially for the next row
-            parameter *= growthRate;
+            dummyLifePoint *= growthRate;
         }
     }
     }
