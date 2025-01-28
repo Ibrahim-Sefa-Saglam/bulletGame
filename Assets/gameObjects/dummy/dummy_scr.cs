@@ -13,13 +13,13 @@ public class Dummy_scr : MonoBehaviour
     public Material dummyMaterial;    
     public TextMeshProUGUI  numberText;
     public Renderer[] componentRenderers;
-    private bool exponantail =  false;
+    private bool exponantial =  false;
 
     // Start is called before the first frame update
     void Start()
     {
    
-    if(!exponantail){
+    if(!exponantial){
      Initialize();
      }      
    
@@ -33,16 +33,15 @@ public class Dummy_scr : MonoBehaviour
 
         }
     }
-    void OnTriggerEnter(Collider other){
-
-    if (other.CompareTag("bullet"))
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.CompareTag("bullet"))
     {
         // Handle bullet collision logic        
         BulletCollision(other.gameObject.GetComponent<Bullet_scr>().damage); // Example value; replace with actual value as needed
         Destroy(other.gameObject);
 
     }
-}
+    }
 
     void Initialize(){
         if(componentRenderers == null ||componentRenderers.Length != 3 ){
@@ -61,8 +60,8 @@ public class Dummy_scr : MonoBehaviour
         }       
 
     }
-     public void Initialize(float exponentialValue, float maxParameter){
-        exponantail = true;
+    public void Initialize(float exponentialValue, float maxParameter){
+        exponantial = true;
         dummyMaxVal = maxParameter;
         if(componentRenderers == null ||componentRenderers.Length != 3 ){
             Debug.Log("componentRenderer has issues");
