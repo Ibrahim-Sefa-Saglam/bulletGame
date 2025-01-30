@@ -289,6 +289,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 430341625243437677, guid: c8b5aa6abd0624b4ebeeaf335cf2d227,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 544881270500050814, guid: c8b5aa6abd0624b4ebeeaf335cf2d227,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -379,6 +384,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.784
       objectReference: {fileID: 0}
+    - target: {fileID: 2136941463089225063, guid: c8b5aa6abd0624b4ebeeaf335cf2d227,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 770844ae96f162f4bb85a6f3ad85ebbf,
+        type: 2}
     - target: {fileID: 2475369015915135185, guid: c8b5aa6abd0624b4ebeeaf335cf2d227,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -868,14 +879,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1881662594}
   clip: {fileID: 1234825133}
-  panelBulletGenerator: {fileID: 0}
-  targetRelativeX: 0
-  targetRelativeY: 16
-  targetRelativeZ: -13
-  targetRotationX: 35
-  targetRotationY: 0
-  transitionSpeed: 5
+  PositionToGun: {x: 0, y: 16, z: -13}
+  targetRotation: {x: 0.3007058, y: 0, z: 0, w: 0.95371693}
   cameraState: canvas
+  transitionSpeed: 5
 --- !u!4 &371906803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7863962965131777088, guid: addf20b23b95aaf4fa5c7344a2f06857,
@@ -1158,23 +1165,38 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3351235123552306834, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
-      propertyPath: rate
-      value: 1.5
+      propertyPath: maxMovement
+      value: 10.73
       objectReference: {fileID: 0}
     - target: {fileID: -3351235123552306834, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
       propertyPath: forwardSpeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3351235123552306834, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
       propertyPath: globalDataObjet
       value: 
       objectReference: {fileID: 1673218481}
+    - target: {fileID: 1863605336053156488, guid: 4736541e41a95da48a908680c5045f7e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.023
+      objectReference: {fileID: 0}
+    - target: {fileID: 2451182479192428696, guid: 4736541e41a95da48a908680c5045f7e,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3233859297085031949, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3330511450479040763, guid: 4736541e41a95da48a908680c5045f7e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.94
       objectReference: {fileID: 0}
     - target: {fileID: 3707383449492819542, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
@@ -1186,15 +1208,40 @@ PrefabInstance:
       propertyPath: globalDataObject
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3707383449492819542, guid: 4736541e41a95da48a908680c5045f7e,
+        type: 3}
+      propertyPath: bulletList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707383449492819542, guid: 4736541e41a95da48a908680c5045f7e,
+        type: 3}
+      propertyPath: distanceBetweenBullets
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5075419426159854841, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
       propertyPath: m_Name
       value: gun2
       objectReference: {fileID: 0}
+    - target: {fileID: 7685017842950146731, guid: 4736541e41a95da48a908680c5045f7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: clip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374340599000034277, guid: 4736541e41a95da48a908680c5045f7e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.0275133
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374340599000034277, guid: 4736541e41a95da48a908680c5045f7e,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 2.6262438
+      objectReference: {fileID: 0}
     - target: {fileID: 8379551259625778268, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -99.4
+      value: -86.4
       objectReference: {fileID: 0}
     - target: {fileID: 8379551259625778268, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
@@ -1204,7 +1251,7 @@ PrefabInstance:
     - target: {fileID: 8379551259625778268, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.6
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8379551259625778268, guid: 4736541e41a95da48a908680c5045f7e,
         type: 3}
@@ -2059,12 +2106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcca656f28211d040a15b7279a4b6c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 1881662594}
-  clip: {fileID: 1234825133}
-  FireRate: 0
-  MaxFireRate: 0
-  MinFireRate: 0
-  BulletLife: 0
 --- !u!4 &1673218483
 Transform:
   m_ObjectHideFlags: 0
@@ -2146,6 +2187,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ac8747b3deb0b2c4298090c82f0598a2, type: 2}
+    - target: {fileID: 5645187852573172474, guid: 8dec610eab0628c44b91854b00a04f11,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645187852573172474, guid: 8dec610eab0628c44b91854b00a04f11,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7797123896940161568, guid: 8dec610eab0628c44b91854b00a04f11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2307,7 +2358,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e5d9ed447cf00ad4bb1c3cd7d1172469, type: 2}
+  - {fileID: 2100000, guid: d05c6be68ff1ff7488566491fe5a8f2c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2425,7 +2476,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a95da5b579e5c8d4eba38c44d05ef37b, type: 2}
+  - {fileID: 2100000, guid: b6aea67183109f54f9fc30843b6c88b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

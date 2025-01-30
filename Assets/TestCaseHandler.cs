@@ -8,12 +8,12 @@ public class TestCaseHandler_scr : MonoBehaviour
     public GameObject bouncerPrefab;
     public Transform[] bouncerPoints = new Transform[8];
     public List<GameObject> bouncerList;
-    public GameDataTracker GameData_;
+    public GameDataTracker_scr GameData_;
     public int[] bouncerIndexes = new int[8];
     public bool isTesting; // if true will place everthing in its place 
 
     void Start() {
-        GameData_ = GetComponent<GameDataTracker>();
+        GameData_ = GetComponent<GameDataTracker_scr>();
         enabled = isTesting;
     }
     private void OnEnable() {

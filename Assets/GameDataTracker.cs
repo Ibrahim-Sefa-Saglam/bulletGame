@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDataTracker : MonoBehaviour
+public class GameDataTracker_scr : MonoBehaviour
 {
     public List<float> last10BulletDamages = new List<float>(); // Store the damage of the last 10 bullets
     public List<float> allBulletDamages = new List<float>();   // Store all delivered bullet damages
