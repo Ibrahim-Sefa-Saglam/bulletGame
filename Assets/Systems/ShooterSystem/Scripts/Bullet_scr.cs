@@ -122,7 +122,6 @@ public class BulletScr : MonoBehaviour, IBullet
     }
     public void Hit(Action hitCallback)
     {
-        throw new NotImplementedException();
     }
     public void DestroySelf()
     {
