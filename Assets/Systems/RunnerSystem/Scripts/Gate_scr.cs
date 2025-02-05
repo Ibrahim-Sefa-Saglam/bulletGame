@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Systems.RunnerSystem;
 using TMPro;
 using UnityEditor.Callbacks;
 using UnityEditor.Experimental.GraphView;
@@ -8,14 +9,14 @@ using UnityEngine.Rendering;
 
 public class GateScript : MonoBehaviour, IBulletInteractable, IPlayerInteractable
 {
-    private Color rgbColorValue = new Color(1, 1, 0, 240/255f); // Default to RGB(255, 255, 0)
-    public Material gateColor;    
+    private Color rgbColorValue = new(1, 1, 0, 240/255f); // Default to RGB(255, 255, 0)
+    public Material gateColor;
     public TextMeshProUGUI  numberText;
     public TextMeshProUGUI  gateTypeText;
     public Renderer gateRenderer;
     public Renderer[] outlineRenderers;
     public GameObject InteractableObject { get ; set ; }
-    // Attributes
+
     public float gateType; // if 1 range; if 0 rate
     public float gateVal;
     public float gateMaxVal = 100;
@@ -29,13 +30,14 @@ public class GateScript : MonoBehaviour, IBulletInteractable, IPlayerInteractabl
     private Vector3 startPosition; // To store the initial position of the object
 
     [SerializeField]
-    private GunScr playerScr;
+    private GunScr wplayerScr;
     [SerializeField]
-    private Bullet_scr bulletScr;
+    private BulletScr bulletScr;
     public bool CanInteract { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
+
     void Start()
-    {        
+    {   
         InteractableObject = gameObject;
         startPosition = transform.position;
         InitializeGate();
@@ -145,6 +147,23 @@ public class GateScript : MonoBehaviour, IBulletInteractable, IPlayerInteractabl
 
         }
     }
+
+    private IEnumerator ScaleBounce()
+    {
+        Transform parentTransform = transform.parent; // Reference the parent
+
+        // Store original scale
+        Vector3 originalScale = parentTransform.localScale;
+
+        // Increase Y scale to 1.1
+        parentTransform.localScale = new Vector3(originalScale.x, 1.1f, originalScale.z);
+
+        // Wait for 0.15 seconds
+        yield return new WaitForSeconds(0.15f);
+
+        // Reset Y scale back to 1
+        parentTransform.localScale = originalScale;
+    }
     void HandlePlayerCollision(GameObject player)
     {       
         GunScr playerScript = player.GetComponent<GunScr>();
@@ -164,21 +183,22 @@ public class GateScript : MonoBehaviour, IBulletInteractable, IPlayerInteractabl
         Destroy(gameObject);
         
     }
-    void HandleBulletCollision(GameObject bullet)
+    void HandleBulletCollision(IBullet bullet)
     {
-        float BulletDamage = bullet.GetComponent<Bullet_scr>().damage;
+        float BulletDamage = bullet.BulletInfo.Damage;
 
         gateVal += BulletDamage;
         gateVal = Mathf.Clamp(gateVal, gateMinVal, gateMaxVal);    
         numberText.text  = gateVal.ToString();        
         ChangeGateColor();
     }
-    public void InteractBullet(System.Action callback, GameObject collidedObject, out bool isDestroy)
+    public void InteractBullet(System.Action callback, IBullet bullet, out bool isDestroy)
     {   
         isDestroy = false;
-        
-        if(collidedObject.CompareTag("bullet")) {
-            HandleBulletCollision(collidedObject);        
+        if (bullet != null)
+        {
+            HandleBulletCollision(bullet);
+            StartCoroutine(ScaleBounce());
             isDestroy = true;
             callback(); 
         }

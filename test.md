@@ -1,13 +1,6 @@
-there is a GameObject "bullet" prefab 
-there is a float "rate" 
-This script belongs to an  object named "clip"
-
-
-creata script that:
-
-creates instances of bullets on the right side of the clip, creates each of them in a line at 1/rate time, each bullet is "bulletDistance" away from each other only on x axis, the initial bullet should be  bulletDistance" away from the clip's collider
-
-add the created bullets into a list to keep track of them, 
-move each bullet to right for "bulletDistance" over 1/rate time
-
-keep each action/check in methods
+In my game I have a 3D map gameObject named "map" 
+Inside the map there is a "Player" gameObject
+also in the scene there is a camera, the camera has a script that has a public GameObject PlayerObject; 
+In the scene the Player GameObject is assinged to the camera's "GameObject PlayerObject" 
+I want to turn the "map" into a prefab (so that I can handle level generation) while the maintaining the relation between camera and player object 
+how can I do this 

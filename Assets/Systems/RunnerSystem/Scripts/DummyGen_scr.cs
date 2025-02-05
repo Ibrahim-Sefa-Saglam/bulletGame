@@ -42,13 +42,11 @@ public class DummyGenerator_scr : MonoBehaviour
         {
             for (int col = 0; col < columns; col++)
             {
-                // Calculate position for the current dummy
                 Vector3 position = start +  col * columnSpacing * rightOfGenerator + row * rowSpacing * forwardOfGenerator;
 
-                // Instantiate dummy and initialize it
-                GameObject dummy = Instantiate(dummyPrefab, position, Quaternion.identity);
+                GameObject dummy = Instantiate(dummyPrefab, position, Quaternion.identity,transform);
                 dummy.transform.rotation = transform.rotation;
-                dummy.GetComponent<Dummy_scr>().Initialize(dummyLifePoint, maxDummyLife);
+                dummy.GetComponent<Dummy_scr>().InitializeDummy(dummyLifePoint, maxDummyLife);
             }
             // Increase the parameter exponentially for the next row
             dummyLifePoint *= growthRate;

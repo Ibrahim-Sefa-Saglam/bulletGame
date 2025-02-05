@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Security.Cryptography.X509Certificates;
+using Systems.RunnerSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;  // For handling UI events
@@ -10,7 +11,8 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public Vector3 origin;           // Stores the object's original position
     private GameObject collidedObject; // Stores the object it collides with
     public GameObject InteractableObject {get; set;}
-    private Camera mainCamera;        // Reference to the main camera
+    private Camera mainCamera;
+            // Reference to the main camera
     public TextMeshProUGUI bouncerText;
     public Renderer blueSphereRenderer;
     public Color originalColor;
@@ -30,7 +32,7 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         bouncerText.text = "+" + bounceNumber.ToString();
         originalColor = blueSphereRenderer.material.color;
     }    
-    
+
     void OnTriggerEnter(Collider collision)
     {
        
@@ -50,7 +52,6 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         }
         Debug.Log("triggerde tag: "+ collidedObject.tag);
     }
-    // This function is triggered when the pointer is pressed down (mouse click or touch)
     public void OnPointerDown(PointerEventData eventData)
     {
         if(!dragable) return;
@@ -164,21 +165,17 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         }
         blueSphereRenderer.material.color = originalColor;  // Ensure it ends exactly at the original color
     }
-    public void HandlePanleBulletCollision(Bullet_scr panelBullet){
-        panelBullet.damage += bounceNumber;
-        panelBullet.numberText.text = panelBullet.damage.ToString();
+    public void HandlePanleBulletCollision(IBullet bullet){
+        bullet.BulletInfo.Damage += bounceNumber;
+        bullet.BulletInfo.BulletText = bullet.BulletInfo.Damage.ToString();
         StartCoroutine(ChangeColorCoroutine());
     }
-    public void InteractBullet(System.Action callback, GameObject collidedObject, out bool isDestroy)
+    public void InteractBullet(System.Action callback, IBullet bullet, out bool isDestroy)
     {   
         isDestroy = false;        
         if(!isDropped) return;
-        if(collidedObject.CompareTag("bullet")) {
-            HandlePanleBulletCollision(collidedObject.GetComponent<Bullet_scr>());        
-        }
-        else if(collidedObject.CompareTag("bouncer")){
-            
-        }
+        if(bullet == null) return; 
+        HandlePanleBulletCollision(bullet);        
     }
 
     

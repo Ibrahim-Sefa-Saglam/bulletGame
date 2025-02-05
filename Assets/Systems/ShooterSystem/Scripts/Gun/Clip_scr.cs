@@ -1,32 +1,51 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Systems.RunnerSystem;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Clip_scr : MonoBehaviour
 {
-    public GameObject gun;
     public GameObject bulletPrefab;
     public GameObject bulletGenerationPoint; 
+    public GameObject[] clipPositions = new GameObject[10];
+    public GameObject gun;
+    public GunScr gunScr;
     public List<GameObject> Clip = new();
     public List<float> bulletList = new();
     public List<float> CacheClip = new(); // fill from ClipFiller
-    public GameObject[] clipPositions = new GameObject[10];
     public float rate;
     public float bulletDistance;
     private float TimeElapsed;
-
+    private float TimeElapsedForStarting;
+ 
+ 
 
     void Start()
     {
-        rate = gun.GetComponent<GunScr>().rate;
+        gunScr = gun.GetComponent<GunScr>();
+        rate = gunScr.rate;
+        InitializeClipContent();
+
+        
     }        
+    
+    // Update is called once per frame
+    void Update()
+    {
+        rate = gunScr.rate;
+        TimeElapsedForStarting += Time.deltaTime;
+        if(TimeElapsedForStarting > 0.9f) MoveBullets();
+        CreateBullet();
+        
+    }   
 
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("bullet")){
-            float bulletDamage = other.GetComponent<Bullet_scr>().damage;            
+            float bulletDamage = other.GetComponent<BulletScr>().BulletInfo.Damage;            
             GunScr gunScript = gun.GetComponent<GunScr>();
             gunScript.FireFromClip(bulletDamage);
             
@@ -36,102 +55,88 @@ public class Clip_scr : MonoBehaviour
             
         }
     }
-    void OnEnable() {
-        TimeElapsed = 0;
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        MoveBullets();
-    }   
-    public void InitializeClipBullets(){
+        
+    // this is used by camera script, once 
+    public void InitializeClipContent(){
 
         bulletDistance = 1;
-        Vector3 newPoint = clipPositions[0].transform.position;// new(GetComponent<Collider>().bounds.min.x - 0.8f, transform.position.y + 0.5f ,transform.position.z);
-        GameObject InitialBullet = Instantiate(bulletPrefab,newPoint,transform.rotation,transform);
-        InitialBullet.layer = 3;
-        Bullet_scr bullet_Scr = InitialBullet.GetComponent<Bullet_scr>();
-        bullet_Scr.damage = GetBulletDamageFromList();
-        bullet_Scr.numberText.text = bullet_Scr.damage.ToString();
-        bullet_Scr.inClip = true;
+        Vector3 newPoint = new( transform.position.x , transform.position.y + 1f , GetComponent<Collider>().bounds.min.z + 2f); // GetComponent<Collider>().bounds.min.z - 0.8f
         
-        Clip.Add(InitialBullet);
+        GameObject initialBullet = Instantiate(bulletPrefab,newPoint,transform.rotation,transform);
+        initialBullet.layer = 3;
         
-        for (int i = 1; i < 11; i++)
+        BulletScr bulletScr = initialBullet.GetComponent<BulletScr>();
+        BulletInfo bulletInfo = new BulletInfo(GetBulletDamageFromList());
+        bulletScr.BulletInfo = bulletInfo; 
+        bulletInfo.Damage = GetBulletDamageFromList();
+        bulletScr.inClip = true;
+        
+        Clip.Add(initialBullet);
+        
+        for (int i = 0; i <15; i++) // (int i = 1; i < 11; i++)
         {
-            Vector3 _newPoint = clipPositions[i].transform.position; // new(Clip[i].transform.position.x - bulletDistance, transform.position.y + 0.5f ,transform.position.z);
-            GameObject newBullet = Instantiate(bulletPrefab,_newPoint,transform.rotation,transform);
+            Vector3 point =  new(transform.position.x, transform.position.y + 1f ,Clip[i].transform.position.z + bulletDistance); // clipPositions[i].transform.position;
+            GameObject newBullet = Instantiate(bulletPrefab,point,transform.rotation,transform);
             newBullet.layer = 3;
-            bullet_Scr = newBullet.GetComponent<Bullet_scr>();
-            bullet_Scr.inClip = true;
-            bullet_Scr.damage = GetBulletDamageFromList();
-            bullet_Scr.numberText.text = bullet_Scr.damage.ToString();
+            bulletScr = newBullet.GetComponent<BulletScr>();
+            bulletScr.inClip = true;
+            bulletScr.BulletInfo.Damage = GetBulletDamageFromList();
+            bulletScr.BulletInfo.BulletText = bulletScr.BulletInfo.Damage.ToString();
+            bulletScr.numberText.text = bulletScr.BulletInfo.Damage.ToString();
             Clip.Add(newBullet);
         }
-        
     }
     public float GetBulletDamageFromList(){
         if(bulletList.Count > 0){
-            Debug.Log(1);
-            float _damage =  bulletList[0];
+            float damage =  bulletList[0];
             bulletList.RemoveAt(0);
-            return _damage;
+            return damage;
         }
         else if( CacheClip.Count > 0){
-            float _damage = CacheClip[(int)UnityEngine.Random.Range(0f, 10f)];
-            return _damage;
+            float damage = CacheClip[(int)UnityEngine.Random.Range(0f, CacheClip.Count)];
+            return damage;
         }
         else{
             return Mathf.Floor(UnityEngine.Random.Range(5f,30f));
         }
-    }
-  public void MoveBullets()
-{
-    TimeElapsed += Time.deltaTime;
-    if (TimeElapsed >= 1 / rate)
+    } 
+    public void MoveBullets()
     {
-        TimeElapsed = 0;
-
-        if (TimeElapsed <= 0.5f / rate)
+        // Loop through each bullet in the list
+        foreach (GameObject bullet in Clip)
         {
-            Transform parentTransform = transform; // The common parent
-            for (int i = 0; i < Clip.Count; i++)
-            {
-                if (i == 0)
-                {
-                    // Get the local min x position relative to the parent
-                    float localMinX = parentTransform.InverseTransformPoint(GetComponent<Collider>().bounds.min).x;
-                    Vector3 newLocalPosition = new(localMinX, Clip[i].transform.localPosition.y, Clip[i].transform.localPosition.z);
-                    StartCoroutine(LerpObject(Clip[i], newLocalPosition, bulletDistance / (rate * 5)));
-                }
-                else
-                {
-                    // Calculate the local distance between bullets
-                    float newDistance = Clip[i - 1].transform.localPosition.x - Clip[i].transform.localPosition.x;
-                    // Vector3 newLocalPosition = new(Clip[i].transform.localPosition.x + (newDistance / rate), Clip[i-1].transform.localPosition.y, Clip[i].transform.localPosition.z);
-                    Vector3 newLocalPosition = Clip[i-1].transform.localPosition;
-                    StartCoroutine(LerpObject(Clip[i], newLocalPosition, bulletDistance / (rate * 5)));
-                }
-            }
+            // Move the bullet to the right (positive X direction) by the specified speed
+            bullet.transform.position += transform.right * (rate * Time.deltaTime) ;
         }
     }
-}
 
-IEnumerator LerpObject(GameObject obj, Vector3 targetLocalPosition, float duration)
-{
-    float elapsedTime = 0f;
-    Vector3 startLocalPosition = obj.transform.localPosition; // Use local position
-
-    while (elapsedTime < duration)
-    {
-        elapsedTime += Time.deltaTime;
-        float t = elapsedTime / duration;
-        if (obj == null) yield break;
-        obj.transform.localPosition = Vector3.Lerp(startLocalPosition, targetLocalPosition, t);
-        yield return null;
-    }
-
-    obj.transform.localPosition = targetLocalPosition; // Ensure final position is accurate
+    void CreateBullet(){
+            TimeElapsed+= Time.deltaTime;
+            if(Clip.Count < 15  ){
+                for(int i=0; i<15;i++){
+                
+                
+                    Vector3 newPoint =  new(transform.position.x, transform.position.y + 1f ,Clip[^1].transform.position.z  + bulletDistance); // clipPositions[i].transform.position;
+                    GameObject newBullet = Instantiate(bulletPrefab,newPoint,transform.rotation,transform);
+                    BulletScr bulletScr = newBullet.GetComponent<BulletScr>();
+                    bulletScr.InitializeForClip(GetBulletDamageFromList());
+                    Clip.Add(newBullet);
+                }
+            }
+            else if (TimeElapsed >= 1/rate)
+            {
+                TimeElapsed = 0;
+                Vector3 newPoint =  new(transform.position.x, transform.position.y + 1f ,Clip[^1].transform.position.z  + bulletDistance); // clipPositions[i].transform.position;
+                GameObject newBullet = Instantiate(bulletPrefab,newPoint,transform.rotation,transform);
+                BulletScr bulletScr = newBullet.GetComponent<BulletScr>();
+                newBullet.layer = 3;
+                bulletScr = newBullet.GetComponent<BulletScr>();
+                bulletScr.inClip = true;
+                bulletScr.BulletInfo.Damage = GetBulletDamageFromList();
+                bulletScr.BulletInfo.BulletText = bulletScr.BulletInfo.Damage.ToString();
+                Clip.Add(newBullet);
+            }
+        
+        
 }
 }

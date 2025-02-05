@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Systems.RunnerSystem;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,14 +8,14 @@ using UnityEngine;
 public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
 {
     public GameObject InteractableObject { get ; set ; }
+    
     public Renderer[] componentRenderers;
-    public Material dummyMaterial;    
     private Color rgbColorValue = new Color(1, 1, 0); // Default to RGB(255, 255, 0) // 80 -> 200 red, 125 -> 0 green & blue 
     public TextMeshProUGUI  numberText;
     public float dummyVal;
     public float dummyMaxVal = 400;
     public float dummyMinVal = 0;
-
+    
     private bool exponantial =  false;
 
     public bool CanInteract { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
@@ -38,10 +39,8 @@ public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
     }   
 
     void Initialize(){
-        if(componentRenderers == null ||componentRenderers.Length != 3 ){
-            return;
-        }
-        
+        if(componentRenderers == null ||componentRenderers.Length != 3 )return;
+
         dummyVal =  Mathf.FloorToInt( Random.Range(50,dummyMaxVal));
         numberText.text = dummyVal.ToString();
 
@@ -50,11 +49,9 @@ public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
             float redValue = dummyVal/dummyMaxVal * 120 + 80f;  
             float otherValues = (dummyMaxVal-dummyVal)/ dummyMaxVal * 125 + 80f;
             item.material.color =  new Color(redValue/225, otherValues/225,  otherValues/225); 
-
         }       
-
     }
-    public void Initialize(float exponentialValue, float maxParameter){
+    public void InitializeDummy(float exponentialValue, float maxParameter){
         exponantial = true;
         dummyMaxVal = maxParameter;
         if(componentRenderers == null ||componentRenderers.Length != 3 ){
@@ -75,18 +72,19 @@ public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
 
     }
     void HandlePlayerCollision(GameObject collidedObject){
-    
         Vector3 direction = (-collidedObject.transform.forward + collidedObject.transform.up).normalized; 
-        if (collidedObject.TryGetComponent<Rigidbody>(out var rb))
-        {
-            rb.AddForce(direction * 80, ForceMode.Impulse);
-        }
-        collidedObject.GetComponent<GunScr>().rate = 0f;
-        collidedObject.GetComponent<GunScr>().forwardSpeed=0f;
+        Rigidbody rb = collidedObject.GetComponent<Rigidbody>();
+        GunScr gunScript = collidedObject.GetComponent<GunScr>(); 
+        rb.isKinematic = false;
+        rb.constraints  =  RigidbodyConstraints.None;
+        rb.AddForce(direction * 80, ForceMode.Impulse);
+        gunScript.rate = 0f;
+        gunScript.forwardSpeed=0f;
+        GameStateHandler.SetState(GameStateHandler.GameStates.Lose);
     }  
-    void HandleBulletCollision(GameObject bullet)
+    void HandleBulletCollision(IBullet bullet)
     {
-        float bulletDamage = bullet.GetComponent<Bullet_scr>().damage;
+        float bulletDamage = bullet.BulletInfo.Damage;
      
         dummyVal -= bulletDamage;
         dummyVal = Mathf.Clamp(dummyVal, dummyMinVal, dummyMaxVal);
@@ -106,17 +104,17 @@ public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
             }
         }
     }
-   public void InteractBullet(System.Action callback, GameObject collidedObject, out bool isDestroy)
+   public void InteractBullet(System.Action callback, IBullet bullet, out bool isDestroy)
     {
         isDestroy = false;
-        if(collidedObject.CompareTag("bullet")){
-            HandleBulletCollision(collidedObject);  
+        if(bullet != null){
+            HandleBulletCollision(bullet);  
             isDestroy = true;
             callback();
         }
     }
     public void InteractPlayer(GameObject player){
-        if(player.CompareTag("player")) {
+        if(player.CompareTag("Player")) {
             HandlePlayerCollision(player);
         }
     }

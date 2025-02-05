@@ -24,9 +24,9 @@ TagManager:
   - bullet
   - bouncerPoint
   - conveyerBullet
-  - detector
-  - 
-  - 
+  - gate
+  - player
+  - coin
   - 
   - 
   - 

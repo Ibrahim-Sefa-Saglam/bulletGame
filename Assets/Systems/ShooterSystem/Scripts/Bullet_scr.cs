@@ -1,96 +1,131 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Systems.RunnerSystem;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
-public class Bullet_scr : MonoBehaviour
+public class BulletScr : MonoBehaviour, IBullet
 {
-    public GameObject bulletEffect;
+    public ParticleSystem particleEffect;
     public TextMeshProUGUI  numberText;
     public Vector3 direction = Vector3.forward;
+    public BulletInfo BulletInfo { get; set; } = new BulletInfo();
+    public Vector3 targetPositionOnClip;
+    public Rigidbody rb;
+
     
     [SerializeField]
-    private float lifetime = 3f;    
-    public float damage;
-    public float velocity = 15f;
-    private float elapsedTime = 0f;
+    private ref float LifetimeRef => ref BulletInfo.Lifetime;    
+    public ref float DamageRef => ref BulletInfo.Damage; 
+    public ref float VelocityRef => ref BulletInfo.Velocity;  
+    private float _elapsedTime = 0f; 
     public float panelGravity = -10f; // Custom gravity force 
-    public bool inPanel;
+    public bool inPanel = false;
     public bool inClip = false;
+    private bool _isFired;
+
     public bool onConveyer = false;
-    public Vector3 targetPositionOnClip;
-    // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
     }
-
     // Update is called once per frame
     void Update()
     {
          if(inPanel){     
-            GetComponent<Rigidbody>().AddForce(Vector3.up * panelGravity, ForceMode.Acceleration);          
-        }
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime >= lifetime && !inPanel && !inClip)
-        {
-            Destroy(gameObject);
-        }
+            rb.AddForce(Vector3.up * panelGravity, ForceMode.Acceleration);          
+         }
+         _elapsedTime += Time.deltaTime;
+
+         numberText.text = BulletInfo.BulletText;
+          if (_elapsedTime >= LifetimeRef && !inPanel && !inClip)
+          {
+              Destroy(this.gameObject);
+          }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.TryGetComponent<IBulletInteractable>(out var interactable))
         {   
-            interactable.InteractBullet(CreateCollisionEffect,gameObject, out var isDestroy);
+            interactable.InteractBullet(CreateCollisionEffect,this, out var isDestroy);
             if(isDestroy) Destroy(gameObject);
         }
     }
-    public void Initialize(float _lifetime)
+    public void InitializeForClip(float damage)
     {
+        gameObject.layer = 3; // clipBullet
         inPanel = false;
-        lifetime = _lifetime;
-        GetComponent<Rigidbody>().useGravity = false;        
+        inClip = true;
+        DamageRef = damage;
+        BulletInfo.BulletText = DamageRef.ToString();
+        rb.useGravity = false;        
     }
-    public void Initialize(float _damage, float life)
+    public void InitializeForFire(float damage, float life)
     {
+
+        BulletInfo.Damage = damage;
+        BulletInfo.Lifetime = life;
+        
         inPanel = false;
-        damage = _damage;
-        lifetime = life;
-        numberText.text = damage.ToString();
-        GetComponent<Rigidbody>().useGravity = false;
+        DamageRef = damage;
+        LifetimeRef = life;
+        BulletInfo.BulletText = DamageRef.ToString(); 
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
     }
     public void InitializeInPanel(){
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
+        rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
+        float newDamage = Mathf.FloorToInt( Random.Range(5,30.99f));
+        BulletInfo newBulletInfo = new BulletInfo(newDamage);
+        BulletInfo = newBulletInfo;
         inPanel = true;
-        damage = Mathf.FloorToInt( Random.Range(5,30.99f));
-        if(damage<5 || damage>30){
-            damage  = 10f;
+        
+        if(DamageRef is < 5 or > 30){
+            DamageRef  = 10f;
         }
-        numberText.text = damage.ToString();        
+        BulletInfo.BulletText = DamageRef.ToString();        
+        numberText.text = DamageRef.ToString();
     }
-    public void InitializeInClip(float bulletValue)
-    {   
-        inPanel = true;
-        damage = bulletValue;
-        numberText.text = damage.ToString();
-    }  
-    public void Travel(float _velocity){
-     velocity = _velocity;   
-     GetComponent<Rigidbody>().velocity = direction * velocity;
-    }
-    public void Travel(Vector3 _direction,float _velocity){
-        velocity = _velocity;
-        direction = _direction;
-        GetComponent<Rigidbody>().velocity = direction * velocity;
+    public void Travel(float velocity){
+        // if (!_isFired) return;
     }
     public void CreateCollisionEffect(){
-        Vector3 effectPoint = new(transform.position.x,transform.position.y, transform.position.z);
-        Quaternion effectRotation = new(transform.rotation.x,transform.rotation.y, Random.Range(0,180),transform.rotation.w);
-        GameObject effect = Instantiate(bulletEffect,effectPoint,effectRotation);
-        Destroy(effect, 0.05f);       
+       ParticleSystem particleInstance = Instantiate(particleEffect,transform.position,transform.rotation);
+       particleInstance.Play();
+    }
+    public void Fire()
+    {
+    }
+    public void Fire(BulletInfo bulletInfo)
+    {
+        
+        rb.useGravity = false;
+
+        _isFired = true;
+        inPanel = false;
+        
+        DamageRef = bulletInfo.Damage;
+        LifetimeRef = bulletInfo.Lifetime;
+        VelocityRef = bulletInfo.Velocity;
+        BulletInfo.BulletText = DamageRef.ToString();
+        rb.velocity = gameObject.transform.forward * VelocityRef;
+
+    }
+    public void Hit(Action hitCallback)
+    {
+        throw new NotImplementedException();
+    }
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
     }
 }

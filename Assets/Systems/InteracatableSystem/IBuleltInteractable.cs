@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Systems.RunnerSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +15,9 @@ public interface IBulletInteractable
         get;
         set;
     }
-   void InteractBullet(Action callback, GameObject bullet, out bool isDestroy);
+    
+    
+    
+   void InteractBullet(Action callback, IBullet bullet, out bool isDestroy);
 }
 

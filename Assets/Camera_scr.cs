@@ -1,63 +1,60 @@
+using System;
+using System.Collections;
+using System.Security.Cryptography.X509Certificates;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class Camera_scr : MonoBehaviour
 {
+    public CinemachineVirtualCamera runnerVCamera;
+    public CinemachineVirtualCamera bouncerVCamera;
     public GameObject gun; // Reference to the gun object
-    public GameObject clip; // Reference to the gun object
-    public Vector3 PositionToGun; // Currently 0,16,-13
-    public Quaternion targetRotation; // Currently 35,0,0
-    public string cameraState = "canvas"; // Whether the camera is currently transitioning
-    public float transitionSpeed = 2f; // Speed of the camera transition
+    public GunScr GunScript;
 
-    
     void Start()
     {
-        gun.GetComponent<GunScr>().enabled = false;        
-        clip.GetComponent<Clip_scr>().enabled = false;        
+        ActivateBouncerMode();
+        GameStateHandler.OnEnterState += OnEnterStateBehaviours;
     }
 
+    private void OnEnterStateBehaviours(GameStateHandler.GameStates enterState)
+    {
+        switch (enterState)
+        {
+            case GameStateHandler.GameStates.Bouncer:
+                ActivateBouncerMode();
+                break;
+            case GameStateHandler.GameStates.Runner:
+                ActivateFollowMode();
+                break;
+        }
+    }
+    public void ActivateBouncerMode()
+    {
+        bouncerVCamera.Priority = 10;
+        runnerVCamera.Priority = 0;
+        GunScript = gun.GetComponent<GunScr>();
+        GunScript.enabled = false;
+    }
     public void ActivateFollowMode()
     {
-        // Start transitioning the camera to the gun
-        cameraState = "isTransitioning";
-        clip.GetComponent<Clip_scr>().InitializeClipBullets();
-    }
-
-    void LateUpdate()
-    {
-         if (cameraState == "isTransitioning")
-        {
-            // Smoothly move the camera to the desired position relative to the gun
-            Vector3 desiredPosition = gun.transform.position + gun.transform.TransformDirection(PositionToGun);
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * transitionSpeed);
-
-            // Smoothly rotate the camera to the target rotation
-            transform.rotation = Quaternion.Lerp(transform.rotation, gun.transform.rotation * targetRotation, Time.deltaTime * transitionSpeed);
-
-            // Check if the camera has approximately reached its target position and rotation
-            if (Vector3.Distance(transform.position, desiredPosition) < 0.01f &&
-                Quaternion.Angle(transform.rotation, gun.transform.rotation * targetRotation) < 0.5f)
-            {
-                // Lock the camera to follow the gun
-                cameraState = "following";
-
-                GunScr gunScript = gun.GetComponent<GunScr>();
-                gunScript.enabled = true;
-                if(clip.GetComponent<Clip_scr>() != null) clip.GetComponent<Clip_scr>().enabled = true;
-                else{ Debug.Log("clipScr not found");}
-                
-
-            }
-        }
-        else if(cameraState == "following")
-        {
-            Vector3 newPosition = transform.position; // Keep current X position
-            newPosition.y = gun.transform.position.y + gun.transform.TransformDirection(PositionToGun).y;
-            newPosition.z = gun.transform.position.z + gun.transform.TransformDirection(PositionToGun).z;
-
-            transform.SetPositionAndRotation(newPosition, gun.transform.rotation * targetRotation);
-        }
+        bouncerVCamera.Priority = 0;
+        runnerVCamera.Priority = 10;
+        
+        GunScript.StartAllGunBehavior();
         
     }
+    public void AssingGunToFollow(GameObject newGun)
+    {
+        gun = newGun;
+        GunScript = gun.GetComponent<GunScr>();
+        GunScript.camera = this.gameObject;
+        runnerVCamera.Follow = gun.transform;
+
+        ActivateBouncerMode();
+    }
+
+   
     
 }

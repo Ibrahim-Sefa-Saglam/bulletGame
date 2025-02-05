@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Systems.RunnerSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,9 +20,9 @@ public class ClipFiller_scr : MonoBehaviour, IBulletInteractable
         clipScr = clip.GetComponent<Clip_scr>();
     }        
 
-    void HandlePanelBulletCollision(GameObject bullet){
+    void HandlePanelBulletCollision(IBullet bullet){
         
-        float bulletDamage = bullet.GetComponent<Bullet_scr>().damage;
+        float bulletDamage = bullet.BulletInfo.Damage;
     
         clipScr.bulletList.Add(bulletDamage);
         clipScr.CacheClip.Add(bulletDamage);
@@ -30,10 +31,10 @@ public class ClipFiller_scr : MonoBehaviour, IBulletInteractable
     
     }
 
-    public void InteractBullet(Action callback, GameObject bullet, out bool isDestroy)
+    public void InteractBullet(Action callback, IBullet bullet, out bool isDestroy)
     {   
         isDestroy = false;
-        if(!bullet.CompareTag("bullet")) return;
+        if(bullet  == null) return;
         HandlePanelBulletCollision(bullet);
         isDestroy = true;
     }
