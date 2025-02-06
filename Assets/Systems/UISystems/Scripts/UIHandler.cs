@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class UIHandler: MonoBehaviour 
 {
@@ -11,6 +12,7 @@ public class UIHandler: MonoBehaviour
     public Canvas inGameCanvas;
     private Canvas[] _uıCanvases;
     public TextMeshProUGUI inGameCanvasCoinText;
+    public GameObject SettingsPanel;
     
     
     void Awake()
@@ -18,7 +20,7 @@ public class UIHandler: MonoBehaviour
         GameManager.SetUIHandler(this);  
         _uıCanvases = new [] {gameOverCanvas, winCanvas,menuCanvas,inGameCanvas};
         SetCanvas(menuCanvas);
-
+        SettingsPanel.SetActive(false);
         GameStateHandler.OnEnterState += OnEnterStateBehaviours;
 
     }
@@ -106,10 +108,9 @@ public class UIHandler: MonoBehaviour
         inGameCanvasCoinText.text = ": " + _coinNumber.ToString();
     }
 
-    public void SettigsButtonAction()
-    {
-     GameManager.ResetGame();
-     _uıCanvases = new [] {gameOverCanvas, winCanvas,menuCanvas,inGameCanvas};
-    }
+    public void SettigsButtonAction() {SettingsPanel.SetActive(!SettingsPanel.activeSelf); }
+    public void SettingsResetButtonAction(){ GameManager.ResetGame();}
+    public void SettingsWinButtonAction() { GameStateHandler.SetState(GameStateHandler.GameStates.Win);}
+    public void SettingsLoseButtonAction() { GameStateHandler.SetState(GameStateHandler.GameStates.Lose);}
 }
 

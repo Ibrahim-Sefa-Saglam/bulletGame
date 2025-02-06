@@ -44,5 +44,16 @@ public class LevelManager: MonoBehaviour
             GameObject gun = newGunTransform.gameObject;
             CameraScript.AssingGunToFollow(gun);
         }
+        public static void ResetToFirstLevel()
+        {
+            Destroy(CurrentLevelObject);
+            
+            _currentLevel = 0;
+            PlayerPrefs.SetInt(GameManager.PlayerPrefsNames.Level.ToString(), _currentLevel);          
+            PlayerPrefs.Save();
+            
+            GenerateCurrentLevel();
+
+        }
 
     }

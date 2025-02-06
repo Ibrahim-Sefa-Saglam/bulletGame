@@ -1,11 +1,10 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public static class GameManager  // Manages Key Object generation and camera orientation
 {   
     
-    [SerializeField]
-    private static string gameState;
     private static UIHandler _uiHandler;
     public enum PlayerPrefsNames
     {
@@ -23,9 +22,8 @@ public static class GameManager  // Manages Key Object generation and camera ori
 
     public static void OnEnterStateBehaviorGameManager(GameStateHandler.GameStates enterState)
     {
-        gameState = enterState.ToString();
-        if (gameState == GameStateHandler.GameStates.Bouncer.ToString() ||
-            gameState == GameStateHandler.GameStates.Runner.ToString()) Time.timeScale = 1;
+        if (enterState.ToString() == GameStateHandler.GameStates.Bouncer.ToString() ||
+            enterState.ToString() == GameStateHandler.GameStates.Runner.ToString()) Time.timeScale = 1;
         else Time.timeScale = 0;
     }
     public static void SetUIHandler(UIHandler handler){ _uiHandler = handler; }
@@ -49,7 +47,7 @@ public static class GameManager  // Manages Key Object generation and camera ori
     {
         PlayerPrefs.SetInt(PlayerPrefsNames.CoinCount.ToString(), 0);
         PlayerPrefs.SetInt(PlayerPrefsNames.Level.ToString(), 0);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LevelManager.ResetToFirstLevel();
 
     }
 }

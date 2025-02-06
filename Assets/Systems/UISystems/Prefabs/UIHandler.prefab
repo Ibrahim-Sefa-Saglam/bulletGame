@@ -53,7 +53,7 @@ MonoBehaviour:
   menuCanvas: {fileID: 1033930421248870820}
   inGameCanvas: {fileID: 4151850526444007843}
   inGameCanvasCoinText: {fileID: 8622221010436023376}
-  _coinNumber: 0
+  SettingsPanel: {fileID: 6009843442603705950}
 --- !u!1001 &559273343068849237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -469,6 +469,76 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4272701815948608014}
     m_Modifications:
+    - target: {fileID: 112022168434858278, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 112022168434858278, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 112022168434858278, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3014456503317653147}
+    - target: {fileID: 112022168434858278, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 112022168434858278, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SettingsWinButtonAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 112022168434858278, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 112022168434858278, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 512434482677818293, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 512434482677818293, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 512434482677818293, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3014456503317653147}
+    - target: {fileID: 512434482677818293, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 512434482677818293, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SettingsLoseButtonAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 512434482677818293, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 512434482677818293, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4265090057626961932, guid: ae3512042e913bc468209ed20884eb17,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -518,6 +588,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575046698629167271, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575046698629167271, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575046698629167271, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3014456503317653147}
+    - target: {fileID: 5575046698629167271, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575046698629167271, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SettingsResetButtonAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575046698629167271, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575046698629167271, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6441020336475500051, guid: ae3512042e913bc468209ed20884eb17,
         type: 3}
@@ -589,6 +694,12 @@ Canvas:
 --- !u!4 &4859769492803741877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4265090057626961932, guid: ae3512042e913bc468209ed20884eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 8665482398319714489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6009843442603705950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3109377726275249895, guid: ae3512042e913bc468209ed20884eb17,
     type: 3}
   m_PrefabInstance: {fileID: 8665482398319714489}
   m_PrefabAsset: {fileID: 0}
