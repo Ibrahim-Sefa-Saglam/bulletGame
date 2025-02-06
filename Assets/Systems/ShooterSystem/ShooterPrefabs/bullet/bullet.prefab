@@ -58,7 +58,6 @@ MonoBehaviour:
   panelGravity: -10
   inPanel: 0
   inClip: 0
-  onConveyer: 0
 --- !u!65 &8229700699027686485
 BoxCollider:
   m_ObjectHideFlags: 0

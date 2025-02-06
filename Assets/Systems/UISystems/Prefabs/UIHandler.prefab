@@ -48,10 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2450f2f465e9b374f9fff0f2a94e9fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvas: {fileID: 6398465205626848640}
-  winCanvas: {fileID: 5237406222711993080}
-  menuCanvas: {fileID: 1033930421248870820}
-  inGameCanvas: {fileID: 4151850526444007843}
+  gameOverCanvas: {fileID: 5792116105646235629}
+  winCanvas: {fileID: 4613183455266744469}
+  menuCanvas: {fileID: 500764744346194889}
+  inGameCanvas: {fileID: 718691890497810058}
   inGameCanvasCoinText: {fileID: 8622221010436023376}
   SettingsPanel: {fileID: 6009843442603705950}
 --- !u!1001 &559273343068849237
@@ -183,15 +183,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f4ad51f03aac2d49ab0efc501709b5f, type: 3}
---- !u!4 &6107041259543447608 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5981450522820545645, guid: 1f4ad51f03aac2d49ab0efc501709b5f,
+--- !u!1 &5792116105646235629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6314973344939252664, guid: 1f4ad51f03aac2d49ab0efc501709b5f,
     type: 3}
   m_PrefabInstance: {fileID: 559273343068849237}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &6398465205626848640 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 6848033365638185429, guid: 1f4ad51f03aac2d49ab0efc501709b5f,
+--- !u!4 &6107041259543447608 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5981450522820545645, guid: 1f4ad51f03aac2d49ab0efc501709b5f,
     type: 3}
   m_PrefabInstance: {fileID: 559273343068849237}
   m_PrefabAsset: {fileID: 0}
@@ -339,15 +339,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78a7402fe2b0f6e43824aa3084934f92, type: 3}
---- !u!4 &4946213163864637248 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5981450522820545645, guid: 78a7402fe2b0f6e43824aa3084934f92,
+--- !u!1 &4613183455266744469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6314973344939252664, guid: 78a7402fe2b0f6e43824aa3084934f92,
     type: 3}
   m_PrefabInstance: {fileID: 1704079357448303405}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &5237406222711993080 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 6848033365638185429, guid: 78a7402fe2b0f6e43824aa3084934f92,
+--- !u!4 &4946213163864637248 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5981450522820545645, guid: 78a7402fe2b0f6e43824aa3084934f92,
     type: 3}
   m_PrefabInstance: {fileID: 1704079357448303405}
   m_PrefabAsset: {fileID: 0}
@@ -455,9 +455,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5859280066342635633}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &1033930421248870820 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 6848033365638185429, guid: 379d9700eb135ee40afd41bafd017825,
+--- !u!1 &500764744346194889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6314973344939252664, guid: 379d9700eb135ee40afd41bafd017825,
     type: 3}
   m_PrefabInstance: {fileID: 5859280066342635633}
   m_PrefabAsset: {fileID: 0}
@@ -685,9 +685,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3512042e913bc468209ed20884eb17, type: 3}
---- !u!223 &4151850526444007843 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 4746702035658314010, guid: ae3512042e913bc468209ed20884eb17,
+--- !u!1 &718691890497810058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8194497585141796403, guid: ae3512042e913bc468209ed20884eb17,
     type: 3}
   m_PrefabInstance: {fileID: 8665482398319714489}
   m_PrefabAsset: {fileID: 0}

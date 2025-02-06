@@ -50,7 +50,6 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             collidedObject = null;
             return;
         }
-        Debug.Log("triggerde tag: "+ collidedObject.tag);
     }
     public void OnPointerDown(PointerEventData eventData)
     {

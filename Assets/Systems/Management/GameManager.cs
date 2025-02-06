@@ -34,11 +34,9 @@ public static class GameManager  // Manages Key Object generation and camera ori
         PlayerPrefs.GetInt(PlayerPrefsNames.CoinCount.ToString(), -1) ;
         int newCoinCount = PlayerPrefs.GetInt(PlayerPrefsNames.CoinCount.ToString(), 0) + coinCount;
 
-        Debug.Log("newCount: " + newCoinCount.ToString());
         _uiHandler.UpdateUICoinNumber(newCoinCount);
         PlayerPrefs.SetInt(PlayerPrefsNames.CoinCount.ToString(), newCoinCount);
         
-        Debug.Log(PlayerPrefsNames.CoinCount.ToString()+" : "+ PlayerPrefs.GetInt(PlayerPrefsNames.CoinCount.ToString(), -1) );
         
         PlayerPrefs.Save();
     }
@@ -47,8 +45,9 @@ public static class GameManager  // Manages Key Object generation and camera ori
     {
         PlayerPrefs.SetInt(PlayerPrefsNames.CoinCount.ToString(), 0);
         PlayerPrefs.SetInt(PlayerPrefsNames.Level.ToString(), 0);
-        LevelManager.ResetToFirstLevel();
+        PlayerPrefs.Save();
 
+        LevelManager.ResetToFirstLevel();
     }
 }
 

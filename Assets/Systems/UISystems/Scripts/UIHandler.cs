@@ -6,11 +6,11 @@ using UnityEngine.Rendering;
 public class UIHandler: MonoBehaviour 
 {
     
-    public Canvas gameOverCanvas;
-    public Canvas winCanvas;
-    public Canvas menuCanvas;
-    public Canvas inGameCanvas;
-    private Canvas[] _uıCanvases;
+    public GameObject gameOverCanvas;
+    public GameObject winCanvas;
+    public GameObject menuCanvas;
+    public GameObject inGameCanvas;
+    private GameObject[] _uıCanvases;
     public TextMeshProUGUI inGameCanvasCoinText;
     public GameObject SettingsPanel;
     
@@ -89,18 +89,13 @@ public class UIHandler: MonoBehaviour
         
       
     }
-    public void SetCanvas(Canvas targetCanvas)
+    public void SetCanvas(GameObject targetCanvas)
     {
-        foreach (Canvas _canvas in _uıCanvases)
+        foreach (GameObject _canvas in _uıCanvases)
         {
-            Debug.Log("canvasLength"+_uıCanvases.Length);
-         
-            Debug.Log(gameOverCanvas.name );
-            
-            if(_canvas != targetCanvas) _canvas.enabled = false;
-             
+            if(_canvas != targetCanvas) _canvas.SetActive(false);
         }
-        targetCanvas.enabled = true;
+        targetCanvas.SetActive(true);
     }
 
     public void  UpdateUICoinNumber(int _coinNumber)

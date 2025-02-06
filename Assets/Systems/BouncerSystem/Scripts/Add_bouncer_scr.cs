@@ -17,12 +17,6 @@ public class Add_bouncer_scr : MonoBehaviour
             bouncers[i] = null; // Explicitly set each element to null (optional)
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void OnClick(){
 
         for(int i=0; i<6;i++){
