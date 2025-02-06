@@ -16,7 +16,7 @@ public static class GameStateHandler
     }
 
     public static event Action<GameStates> OnExitState;
-    public static event Action<GameStates> OnEnterState;
+    public static event Action<GameStates> OnEnterState ;
     
     public static void Init()
     {

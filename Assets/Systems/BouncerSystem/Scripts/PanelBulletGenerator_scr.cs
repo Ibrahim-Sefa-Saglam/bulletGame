@@ -43,7 +43,7 @@ public class PanelBulletGenerator_scr : MonoBehaviour
         {
             float randomAddition =  Random.Range(-1f,1);
             Vector3 randomizedSpawnPoint = new Vector3(spawnpoint.position.x+randomAddition,spawnpoint.position.y,spawnpoint.position.z);
-            GameObject bulletInstance = Instantiate(panelBullet, randomizedSpawnPoint, spawnpoint.rotation);
+            GameObject bulletInstance = Instantiate(panelBullet, randomizedSpawnPoint, spawnpoint.rotation,transform);
             return bulletInstance.GetComponent<BulletScr>();
         }
         else

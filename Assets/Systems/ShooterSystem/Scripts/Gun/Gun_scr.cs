@@ -1,13 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
-using Cinemachine;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GunScr : MonoBehaviour
 {
@@ -29,7 +20,6 @@ public class GunScr : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("gun awoke");
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         clipScript = clip.GetComponent<Clip_scr>();
@@ -74,15 +64,16 @@ public class GunScr : MonoBehaviour
     } 
     public void FireFromClip(float damage){// fires a bullet with damage as given parameter
          if (bullet != null && bulletPoint != null)
-        {
-            Vector3 offset = bulletPoint.transform.forward * 0.6f;
-            GameObject bulletInstance = Instantiate(bullet, bulletPoint.transform.position + offset, bulletPoint.transform.rotation);
-            BulletScr bulletInstanceScr = bulletInstance.GetComponent<BulletScr>();
+         {
+             Vector3 offset = bulletPoint.transform.forward * 0.6f;
+             GameObject bulletInstance = Instantiate(bullet, bulletPoint.transform.position + offset, bulletPoint.transform.rotation);
+
+             BulletScr bulletInstanceScr = bulletInstance.GetComponent<BulletScr>();
             
 
-            bulletInstanceScr.InitializeForFire(damage,bulletLifetime);
-            bulletInstanceScr.Fire(bulletInstanceScr.BulletInfo);
-        }
+             bulletInstanceScr.InitializeForFire(damage,bulletLifetime);
+             bulletInstanceScr.Fire(bulletInstanceScr.BulletInfo);
+         }
     }
      void TrackMouseMovement()
     {
@@ -128,15 +119,7 @@ public class GunScr : MonoBehaviour
         }
     
 }
-
-    public void InitializeGun()
-    {
-        rb = GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
-        clipScript = clip.GetComponent<Clip_scr>();
-        this.enabled = false;
-        clipScript.enabled = false;
-    }
+     
     public void StartAllGunBehavior()
         {
             clipScript = clip.GetComponent<Clip_scr>();

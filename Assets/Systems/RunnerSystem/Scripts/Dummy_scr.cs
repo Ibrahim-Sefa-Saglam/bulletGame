@@ -55,7 +55,6 @@ public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
         exponantial = true;
         dummyMaxVal = maxParameter;
         if(componentRenderers == null ||componentRenderers.Length != 3 ){
-            Debug.Log("componentRenderer has issues");
             return;
         }
         

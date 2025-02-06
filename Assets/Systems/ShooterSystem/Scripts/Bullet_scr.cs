@@ -21,22 +21,20 @@ public class BulletScr : MonoBehaviour, IBullet
     public Rigidbody rb;
 
     
-    [SerializeField]
-    private ref float LifetimeRef => ref BulletInfo.Lifetime;    
-    public ref float DamageRef => ref BulletInfo.Damage; 
-    public ref float VelocityRef => ref BulletInfo.Velocity;  
+    private ref float LifetimeRef => ref BulletInfo.Lifetime;
+    private ref float DamageRef => ref BulletInfo.Damage;
+    private ref float VelocityRef => ref BulletInfo.Velocity;  
     private float _elapsedTime = 0f; 
     public float panelGravity = -10f; // Custom gravity force 
     public bool inPanel = false;
     public bool inClip = false;
-    private bool _isFired;
 
-    public bool onConveyer = false;
-    void Start()
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
     }
-    // Update is called once per frame
     void Update()
     {
          if(inPanel){     
@@ -70,7 +68,6 @@ public class BulletScr : MonoBehaviour, IBullet
     }
     public void InitializeForFire(float damage, float life)
     {
-
         BulletInfo.Damage = damage;
         BulletInfo.Lifetime = life;
         
@@ -78,11 +75,9 @@ public class BulletScr : MonoBehaviour, IBullet
         DamageRef = damage;
         LifetimeRef = life;
         BulletInfo.BulletText = DamageRef.ToString(); 
-        rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
     }
     public void InitializeInPanel(){
-        rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
         float newDamage = Mathf.FloorToInt( Random.Range(5,30.99f));
         BulletInfo newBulletInfo = new BulletInfo(newDamage);
@@ -95,22 +90,17 @@ public class BulletScr : MonoBehaviour, IBullet
         BulletInfo.BulletText = DamageRef.ToString();        
         numberText.text = DamageRef.ToString();
     }
-    public void Travel(float velocity){
-        // if (!_isFired) return;
-    }
-    public void CreateCollisionEffect(){
+    private void CreateCollisionEffect(){
        ParticleSystem particleInstance = Instantiate(particleEffect,transform.position,transform.rotation);
        particleInstance.Play();
+       Destroy(particleEffect,.3f);
     }
-    public void Fire()
-    {
-    }
+
     public void Fire(BulletInfo bulletInfo)
     {
         
         rb.useGravity = false;
 
-        _isFired = true;
         inPanel = false;
         
         DamageRef = bulletInfo.Damage;
@@ -120,9 +110,8 @@ public class BulletScr : MonoBehaviour, IBullet
         rb.velocity = gameObject.transform.forward * VelocityRef;
 
     }
-    public void Hit(Action hitCallback)
-    {
-    }
+    public void Fire() {}
+    public void Hit(Action hitCallback){}
     public void DestroySelf()
     {
         Destroy(this.gameObject);

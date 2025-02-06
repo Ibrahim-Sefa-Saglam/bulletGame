@@ -57,7 +57,6 @@ public class Conveyer_scr : MonoBehaviour, IBulletInteractable
             bulletObj.transform.SetPositionAndRotation(newPosition, new Quaternion(0,180,0,transform.rotation.w));
             bulletRigidbody.constraints = RigidbodyConstraints.None;
             bulletRigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
-            bulletScr.onConveyer = true;
         }
    }
 
