@@ -1,7 +1,9 @@
 using System;
+using Systems.SaveSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Serialization;
 
 public class UIHandler: MonoBehaviour 
 {
@@ -11,8 +13,8 @@ public class UIHandler: MonoBehaviour
     public GameObject menuCanvas;
     public GameObject inGameCanvas;
     private GameObject[] _uıCanvases;
+    public GameObject settingsPanel;
     public TextMeshProUGUI inGameCanvasCoinText;
-    public GameObject SettingsPanel;
     
     
     void Awake()
@@ -20,8 +22,10 @@ public class UIHandler: MonoBehaviour
         GameManager.SetUIHandler(this);  
         _uıCanvases = new [] {gameOverCanvas, winCanvas,menuCanvas,inGameCanvas};
         SetCanvas(menuCanvas);
-        SettingsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         GameStateHandler.OnEnterState += OnEnterStateBehaviours;
+        
+        inGameCanvasCoinText.text = GameSaveData.Instance.coinScore.ToString();
 
     }
 
@@ -91,19 +95,19 @@ public class UIHandler: MonoBehaviour
     }
     public void SetCanvas(GameObject targetCanvas)
     {
-        foreach (GameObject _canvas in _uıCanvases)
+        foreach (GameObject canvas in _uıCanvases)
         {
-            if(_canvas != targetCanvas) _canvas.SetActive(false);
+            if(canvas != targetCanvas) canvas.SetActive(false);
         }
         targetCanvas.SetActive(true);
     }
 
-    public void  UpdateUICoinNumber(int _coinNumber)
+    public void  UpdateUICoinNumber(int coinNumber)
     {
-        inGameCanvasCoinText.text = ": " + _coinNumber.ToString();
+        inGameCanvasCoinText.text = ": " + coinNumber.ToString();
     }
 
-    public void SettigsButtonAction() {SettingsPanel.SetActive(!SettingsPanel.activeSelf); }
+    public void SettigsButtonAction() {settingsPanel.SetActive(!settingsPanel.activeSelf); }
     public void SettingsResetButtonAction(){ GameManager.ResetGame();}
     public void SettingsWinButtonAction() { GameStateHandler.SetState(GameStateHandler.GameStates.Win);}
     public void SettingsLoseButtonAction() { GameStateHandler.SetState(GameStateHandler.GameStates.Lose);}

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Security.Cryptography.X509Certificates;
 using Cinemachine;
+using Systems.SaveSystem;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 
@@ -45,7 +46,7 @@ public class Camera_scr : MonoBehaviour
         GunScript.StartAllGunBehavior();
         
     }
-    public void AssingGunToFollow(GameObject newGun)
+    public void AssignGunToFollow(GameObject newGun)
     {
         gun = newGun;
         GunScript = gun.GetComponent<GunScr>();

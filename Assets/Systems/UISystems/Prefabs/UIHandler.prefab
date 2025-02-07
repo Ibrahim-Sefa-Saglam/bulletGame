@@ -52,8 +52,8 @@ MonoBehaviour:
   winCanvas: {fileID: 4613183455266744469}
   menuCanvas: {fileID: 500764744346194889}
   inGameCanvas: {fileID: 718691890497810058}
+  settingsPanel: {fileID: 6009843442603705950}
   inGameCanvasCoinText: {fileID: 8622221010436023376}
-  SettingsPanel: {fileID: 6009843442603705950}
 --- !u!1001 &559273343068849237
 PrefabInstance:
   m_ObjectHideFlags: 0

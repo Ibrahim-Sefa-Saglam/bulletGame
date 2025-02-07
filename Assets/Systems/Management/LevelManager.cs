@@ -1,9 +1,8 @@
-﻿using Systems.Management;
+﻿using Systems.SaveSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 
-public class LevelManager: MonoBehaviour, IDataOps
+public class LevelManager: MonoBehaviour 
     {
         public static GameObject[] LevelPrefabs;
         public static GameObject CurrentLevelObject;
@@ -15,9 +14,7 @@ public class LevelManager: MonoBehaviour, IDataOps
 
         void Start()
         {
-              
-            LoadData();
-            _currentLevel =  PlayerPrefs.GetInt(GameManager.PlayerPrefsNames.Level.ToString(), 0);
+            _currentLevel = GameSaveData.Instance.levelIndex;
             LevelPrefabs = assingableLevelPrefabs;
             CameraScript = mainCameraObject.GetComponent<Camera_scr>();
             GenerateCurrentLevel();
@@ -29,37 +26,31 @@ public class LevelManager: MonoBehaviour, IDataOps
             if(_currentLevel < LevelPrefabs.Length - 1)
             {
                 _currentLevel++;
-                
-                IDataOps.UpdateLevelData(_currentLevel);
-                
-                PlayerPrefs.SetInt(GameManager.PlayerPrefsNames.Level.ToString(), _currentLevel);          
-                PlayerPrefs.Save();
+
             }
             GenerateCurrentLevel();
         }
         public static void GenerateCurrentLevel()
         {
             if(CurrentLevelObject != null) Destroy(CurrentLevelObject);
+            
             CurrentLevelObject = Instantiate(LevelPrefabs[_currentLevel] );
+            GameSaveData.Instance.levelIndex = _currentLevel;
+
             Transform newGunTransform = CurrentLevelObject.transform.Find("gun");
             GameObject gun = newGunTransform.gameObject;
-            CameraScript.AssingGunToFollow(gun);
+            
+            CameraScript.AssignGunToFollow(gun);
         }
         public static void ResetToFirstLevel()
         {
             Destroy(CurrentLevelObject);
             
             _currentLevel = 0;
-            PlayerPrefs.SetInt(GameManager.PlayerPrefsNames.Level.ToString(), _currentLevel);          
-            PlayerPrefs.Save();
-            
+            GameSaveData.Instance.levelIndex = _currentLevel;
             GenerateCurrentLevel();
 
         }
-
-
-        public void LoadData()
-        {
-            _currentLevel = IDataOps.CurrentGameData.LevelIndex;
-        }
+        
+    
     }

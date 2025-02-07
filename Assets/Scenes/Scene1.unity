@@ -1330,7 +1330,7 @@ MonoBehaviour:
   - {fileID: 609325968}
   - {fileID: 2039125}
   bouncerPrefab: {fileID: 0}
-  bouncers: []
+  bouncerData: []
 --- !u!1 &1973054407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6189093093001764463, guid: fe37d819d0d9ca5449a1bc0c3773b8b6,

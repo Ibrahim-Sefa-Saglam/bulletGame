@@ -1,27 +1,26 @@
- using System.Collections;
-using System.Collections.Generic;
-using Systems.Management;
+using Systems.SaveSystem;
 using UnityEngine;
 
-public class Coin : MonoBehaviour, IPlayerInteractable, IDataOps 
+public class Coin : MonoBehaviour, IPlayerInteractable
 {
     public ParticleSystem CoinParticle;
     public Vector3 coinStartPosition;
     public float hoverAmplitude = 0.5f; // The maximum height difference of the hover
     public float hoverFrequency = 5f;
-    void Start()
+    private GameSaveData _gameData = GameSaveData.Instance;
+
+    private void Start()
     {
         coinStartPosition = transform.position;
-        
     }
-    void Update()
+
+    private void Update()
     {
         CoinHover();         
     }
     public bool CanInteract { get; set; }
     public void InteractPlayer(GameObject player)
     {
-        GameManager.IncrementSavedCoinCount(1); // increment the PlayerPrefs.CoinCount by 1
         IncreasePlayerCoins(1);  // increase
         CreateCoinParticleEffect();
     }
@@ -41,14 +40,13 @@ public class Coin : MonoBehaviour, IPlayerInteractable, IDataOps
         transform.position = coinStartPosition + new Vector3(0f, hoverOffset, 0f);
         
     }
-
     public void DestroySelf()
     {
         Destroy(gameObject);
     }
-
-    public void LoadData(){}
-
-    public void IncreasePlayerCoins(int addedCoins){ IDataOps.UpdateCoinData(IDataOps.CurrentGameData.PlayerCoinCount + addedCoins);
+    public void IncreasePlayerCoins(int addedCoins){ 
+        
+        _gameData.coinScore += addedCoins;
+        GameManager.UIHandler.UpdateUICoinNumber(_gameData.coinScore);
     }
 }   

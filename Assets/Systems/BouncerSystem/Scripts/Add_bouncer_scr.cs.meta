@@ -4,7 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - bouncerPrefab: {instanceID: 0}
+  - bouncerPrefab: {fileID: 6871353535926740912, guid: 7556a04d95f4dac498d38c1d21c50831,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

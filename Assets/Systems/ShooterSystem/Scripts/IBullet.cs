@@ -1,6 +1,4 @@
-﻿
-using System;
-
+﻿using System;
 namespace Systems.RunnerSystem
 {
     public interface IBullet
@@ -19,4 +17,7 @@ namespace Systems.RunnerSystem
         
         void DestroySelf();
     }
+
+    
 }
+

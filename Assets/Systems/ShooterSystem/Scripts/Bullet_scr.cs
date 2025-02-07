@@ -79,6 +79,7 @@ public class BulletScr : MonoBehaviour, IBullet
     }
     public void InitializeInPanel(){
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
+
         float newDamage = Mathf.FloorToInt( Random.Range(5,30.99f));
         BulletInfo newBulletInfo = new BulletInfo(newDamage);
         BulletInfo = newBulletInfo;

@@ -1,4 +1,5 @@
 ﻿using System;
+using Systems.SaveSystem;
 using UnityEngine;
 
 public static class GameStateHandler
@@ -26,6 +27,8 @@ public static class GameStateHandler
     {
         FireOnExitState(_currentState);
         _currentState = state;
+        
+        
         FireOnEnterState(_currentState);
     }
 

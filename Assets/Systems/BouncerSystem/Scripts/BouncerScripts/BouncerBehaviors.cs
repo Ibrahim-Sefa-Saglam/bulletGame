@@ -6,7 +6,7 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
     private GameObject _collidedObject;
     public GameObject InteractableObject { get; set; }
-    private BouncerPrefabAttributes _bouncerAttributes;
+    private Bouncer _bouncerAttributes;
     private Camera _mainCamera;
     public bool isDragging = false;
     public bool isDropped = false; 
@@ -15,7 +15,7 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
     {
         InteractableObject = gameObject;
         _mainCamera = Camera.main;
-        _bouncerAttributes = GetComponent<BouncerPrefabAttributes>();
+        _bouncerAttributes = GetComponent<Bouncer>();
     }    
     void OnTriggerEnter(Collider collision)
     {
@@ -79,7 +79,7 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
                 }
                 
                 _bouncerAttributes.IncrementBouncerNumber();
-                Destroy(this.gameObject);
+                _bouncerAttributes.DestroySelf();
             }
             else if (_collidedObject.CompareTag("bouncerPoint_+"))
             {
@@ -87,7 +87,7 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
                 if(isPlaced)
                 {
                     _collidedObject.GetComponent<Collider>().enabled = false;
-                    Destroy(gameObject);
+                    _bouncerAttributes.DestroySelf();
                 }
                 else{
                     transform.position = _bouncerAttributes.originalPosition;
@@ -119,11 +119,13 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
         StartCoroutine(_bouncerAttributes.ChangeColorCoroutine());
     }
     public void InteractBullet(System.Action callback, IBullet bullet, out bool isDestroy)
-    {   
+    {
+        Debug.Log(21243);
         isDestroy = false;        
         if(!isDropped) return;
-        if(bullet == null) return; 
-        HandlePanleBulletCollision(bullet);        
+        if(bullet == null) return;
+        HandlePanleBulletCollision(bullet);
     }
-    
+
+
 }

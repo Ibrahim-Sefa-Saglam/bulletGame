@@ -4,7 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4981114f-80da-4a1c-bafa-2e181a6ae258" name="Changes" comment="" />
+    <list default="true" id="4981114f-80da-4a1c-bafa-2e181a6ae258" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/GameSaveData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/GameSaveData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/SaveData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/SaveData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Camera_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerBehaviors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerBehaviors.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerPrefabAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerPrefabAttributes.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/PanelBulletGenerator_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/PanelBulletGenerator_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/DataManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/DataManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/GameStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/Management/GameStates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/IDataOps.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/IDataOps.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/Management/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Materials/CoinMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Materials/CoinMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinPrefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/IBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/IBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/UIHandler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/UIHandler.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/UISystems/Scripts/UIHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/Scripts/UIHandler.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,6 +155,8 @@
       <workItem from="1738775750257" duration="5922000" />
       <workItem from="1738824083150" duration="24809000" />
       <workItem from="1738911018893" duration="7710000" />
+      <workItem from="1738937560509" duration="2923000" />
+      <workItem from="1738947665478" duration="4519000" />
     </task>
     <task id="LOCAL-00001" summary="0">
       <option name="closed" value="true" />

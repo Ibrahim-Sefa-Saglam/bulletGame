@@ -1,23 +1,17 @@
-using Cinemachine;
+using Systems.SaveSystem;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public static class GameManager  // Manages Key Object generation and camera orientation
 {   
     
-    private static UIHandler _uiHandler;
-    public enum PlayerPrefsNames
-    {
-        CoinCount = 0,
-        Level = 1,
-    }
-    
+    public static UIHandler UIHandler;
+    private static GameSaveData _gameSaveData;
+     
     static GameManager()
     {
         GameStateHandler.OnEnterState += OnEnterStateBehaviorGameManager;
-        
-        PlayerPrefs.SetInt(PlayerPrefsNames.CoinCount.ToString(), 0);
-
+        LoadData();
+        _gameSaveData = GameSaveData.Instance;
     }
 
     public static void OnEnterStateBehaviorGameManager(GameStateHandler.GameStates enterState)
@@ -25,29 +19,27 @@ public static class GameManager  // Manages Key Object generation and camera ori
         if (enterState.ToString() == GameStateHandler.GameStates.Bouncer.ToString() ||
             enterState.ToString() == GameStateHandler.GameStates.Runner.ToString()) Time.timeScale = 1;
         else Time.timeScale = 0;
+        if (enterState.ToString() == GameStateHandler.GameStates.Win.ToString() ||
+            enterState.ToString() == GameStateHandler.GameStates.Lose.ToString())
+        {
+            GameSaveData.Instance.Save();
+        } 
     }
-    public static void SetUIHandler(UIHandler handler){ _uiHandler = handler; }
-    public static void IncrementSavedCoinCount(int coinCount)
-    {
-        Debug.Log(PlayerPrefsNames.CoinCount.ToString()+" : "+ PlayerPrefs.GetInt(PlayerPrefsNames.CoinCount.ToString(), -1) );
-        
-        PlayerPrefs.GetInt(PlayerPrefsNames.CoinCount.ToString(), -1) ;
-        int newCoinCount = PlayerPrefs.GetInt(PlayerPrefsNames.CoinCount.ToString(), 0) + coinCount;
-
-        _uiHandler.UpdateUICoinNumber(newCoinCount);
-        PlayerPrefs.SetInt(PlayerPrefsNames.CoinCount.ToString(), newCoinCount);
-        
-        
-        PlayerPrefs.Save();
-    }
-
+    public static void SetUIHandler(UIHandler handler){ UIHandler = handler; }
     public static void ResetGame()
     {
-        PlayerPrefs.SetInt(PlayerPrefsNames.CoinCount.ToString(), 0);
-        PlayerPrefs.SetInt(PlayerPrefsNames.Level.ToString(), 0);
-        PlayerPrefs.Save();
-
         LevelManager.ResetToFirstLevel();
+        _gameSaveData.BouncerDataList.Clear();
+        _gameSaveData.coinScore = 0;
+        _gameSaveData.levelIndex = 0;
+        _gameSaveData.Load();
+        _gameSaveData.Save();
+        UIHandler.UpdateUICoinNumber(0);
     }
+    public static void LoadData()
+    {
+        GameSaveData.Instance.Load();
+    }
+    
 }
 
