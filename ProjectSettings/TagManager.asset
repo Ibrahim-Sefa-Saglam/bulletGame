@@ -9,6 +9,10 @@ TagManager:
   - bouncer
   - panel
   - bouncerPoint
+  - gate
+  - bouncerPoint_+
+  - bouncerPoint_x
+  - clip
   layers:
   - Default
   - TransparentFX
@@ -19,10 +23,10 @@ TagManager:
   - clip
   - bullet
   - bouncerPoint
-  - 
-  - 
-  - 
-  - 
+  - conveyerBullet
+  - gate
+  - player
+  - coin
   - 
   - 
   - 

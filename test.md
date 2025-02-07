@@ -1,13 +1,6 @@
-make a script that will gather data for my game, 
-I want this script to 
-calculate the average damage of last 10 delivered bullets, 
-calculate the average damage of all delivered bullets,  
-calculate the average generation rate, 
-calculate the average delivering rate,
-calculate the average panel time of last 10 delivered bullets,
-calculate the average panel time of all delivered bullets,
-
-all of these attributes are float variables and will be incremented by other scripts via methods
-
-
-
+In my game I have a 3D map gameObject named "map" 
+Inside the map there is a "Player" gameObject
+also in the scene there is a camera, the camera has a script that has a public GameObject PlayerObject; 
+In the scene the Player GameObject is assinged to the camera's "GameObject PlayerObject" 
+I want to turn the "map" into a prefab (so that I can handle level generation) while the maintaining the relation between camera and player object 
+how can I do this 

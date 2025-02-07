@@ -1,5 +1,7 @@
-- give bouncers color change on collision,
-- give bouncers color change on addition,
-- make panel bullets rotation stable,
-- give bullets collison effect,
-- give gates effects,
+- change conveyer belts visuals
+- change clip visual
+- change clip's bullet feeding 
+- add visual for bullet collision
+- add a final gate to finish game
+- add a game over screen
+- balance the gun and dummies
