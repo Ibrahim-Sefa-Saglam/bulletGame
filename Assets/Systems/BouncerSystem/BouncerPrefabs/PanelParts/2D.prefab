@@ -1449,7 +1449,7 @@ MonoBehaviour:
   - {fileID: 388186478662472466}
   - {fileID: 8492936357006946020}
   - {fileID: 8929318260583150026}
-  bouncerPrefab: {fileID: 6871353535926740912, guid: e4d8bf5ada760aa4eacb762a045e5e56,
+  bouncerPrefab: {fileID: 6871353535926740912, guid: 7556a04d95f4dac498d38c1d21c50831,
     type: 3}
   bouncers: []
 --- !u!1 &8105874651845000453
