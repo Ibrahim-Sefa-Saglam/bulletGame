@@ -32,7 +32,6 @@ public static class GameManager  // Manages Key Object generation and camera ori
         _gameSaveData.BouncerDataList.Clear();
         _gameSaveData.coinScore = 0;
         _gameSaveData.levelIndex = 0;
-        _gameSaveData.Load();
         _gameSaveData.Save();
         UIHandler.UpdateUICoinNumber(0);
     }

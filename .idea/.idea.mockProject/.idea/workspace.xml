@@ -5,36 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4981114f-80da-4a1c-bafa-2e181a6ae258" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/GameSaveData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/GameSaveData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/SaveData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/SaveData.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera_scr.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerBehaviors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerBehaviors.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerPrefabAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerPrefabAttributes.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/PanelBulletGenerator_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/PanelBulletGenerator_scr.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/DataManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/DataManager.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/GameStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/Management/GameStates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/IDataOps.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/IDataOps.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/Management/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Materials/CoinMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Materials/CoinMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinPrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/IBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/IBullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/UIHandler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/UIHandler.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/UISystems/Scripts/UIHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/Scripts/UIHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,21 +50,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Standalone Player.Start Unity.executor&quot;: &quot;Run&quot;,
-    &quot;Standalone Player.Unit Tests (batch mode).executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;uiFix&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Standalone Player.Start Unity.executor": "Run",
+    "Standalone Player.Unit Tests (batch mode).executor": "Run",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Standalone Player.Unit Tests (batch mode)">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.37f1\Editor\Unity.exe" />
@@ -258,6 +229,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Systems/UISystems/Scripts/UIHandler.cs</url>
+          <line>96</line>
+          <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\UISystems\Scripts\UIHandler.cs" containingFunctionPresentation="Method 'SetCanvas'">
+            <startOffsets>
+              <option value="2803" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2804" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
