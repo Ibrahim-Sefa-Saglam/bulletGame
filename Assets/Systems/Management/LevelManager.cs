@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Systems.Management;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 
-public class LevelManager: MonoBehaviour
+public class LevelManager: MonoBehaviour, IDataOps
     {
         public static GameObject[] LevelPrefabs;
         public static GameObject CurrentLevelObject;
@@ -10,32 +11,32 @@ public class LevelManager: MonoBehaviour
         public GameObject[] assingableLevelPrefabs;
         public GameObject mainCameraObject;
         private static int _currentLevel;
+        
 
         void Start()
         {
+              
+            LoadData();
             _currentLevel =  PlayerPrefs.GetInt(GameManager.PlayerPrefsNames.Level.ToString(), 0);
-            LevelPrefabs = assingableLevelPrefabs;  
+            LevelPrefabs = assingableLevelPrefabs;
             CameraScript = mainCameraObject.GetComponent<Camera_scr>();
             GenerateCurrentLevel();
             
         }
-        
-        public static void GenerateNextLevel()
+
+        public static void LevelUp()
         {
-            
-            Destroy(CurrentLevelObject);
-            
             if(_currentLevel < LevelPrefabs.Length - 1)
             {
                 _currentLevel++;
+                
+                IDataOps.UpdateLevelData(_currentLevel);
+                
                 PlayerPrefs.SetInt(GameManager.PlayerPrefsNames.Level.ToString(), _currentLevel);          
                 PlayerPrefs.Save();
             }
-            
             GenerateCurrentLevel();
-            
         }
-
         public static void GenerateCurrentLevel()
         {
             if(CurrentLevelObject != null) Destroy(CurrentLevelObject);
@@ -56,4 +57,9 @@ public class LevelManager: MonoBehaviour
 
         }
 
+
+        public void LoadData()
+        {
+            _currentLevel = IDataOps.CurrentGameData.LevelIndex;
+        }
     }

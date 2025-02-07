@@ -83,7 +83,7 @@ public class UIHandler: MonoBehaviour
         GameStateHandler.SetState(GameStateHandler.GameStates.Bouncer);
         SetCanvas(inGameCanvas);
         
-        LevelManager.GenerateNextLevel();
+        LevelManager.LevelUp();
         // CHANGE THE REST OF THIS METHOD AS FOLLOWS:  
         // Handle runner generation in GameManager.cs 
         

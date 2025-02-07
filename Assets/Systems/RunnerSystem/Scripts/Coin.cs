@@ -1,8 +1,9 @@
  using System.Collections;
 using System.Collections.Generic;
+using Systems.Management;
 using UnityEngine;
 
-public class Coin : MonoBehaviour, IPlayerInteractable
+public class Coin : MonoBehaviour, IPlayerInteractable, IDataOps 
 {
     public ParticleSystem CoinParticle;
     public Vector3 coinStartPosition;
@@ -21,6 +22,7 @@ public class Coin : MonoBehaviour, IPlayerInteractable
     public void InteractPlayer(GameObject player)
     {
         GameManager.IncrementSavedCoinCount(1); // increment the PlayerPrefs.CoinCount by 1
+        IncreasePlayerCoins(1);  // increase
         CreateCoinParticleEffect();
     }
     public void CreateCoinParticleEffect(){
@@ -43,5 +45,10 @@ public class Coin : MonoBehaviour, IPlayerInteractable
     public void DestroySelf()
     {
         Destroy(gameObject);
+    }
+
+    public void LoadData(){}
+
+    public void IncreasePlayerCoins(int addedCoins){ IDataOps.UpdateCoinData(IDataOps.CurrentGameData.PlayerCoinCount + addedCoins);
     }
 }   
