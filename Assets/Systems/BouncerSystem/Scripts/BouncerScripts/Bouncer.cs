@@ -15,13 +15,18 @@ using UnityEngine.Serialization;
         public Vector3 bouncerPosition;
         [SerializeField]
         public Quaternion bouncerRotation;
-    
-        public BouncerData (ref int bouncerNumber, Vector3 bouncerPosition , Quaternion bouncerRotation)
+        [SerializeField]
+        public bool isDropped;
+        [SerializeField]
+        public string sing;
+        public BouncerData (ref int bouncerNumber, Vector3 bouncerPosition , Quaternion bouncerRotation, bool isDropped, string sing)
         {
-            this.bouncerNumber = bouncerNumber;
             BouncerCount++;
+            this.bouncerNumber = bouncerNumber;
             this.bouncerPosition = bouncerPosition;
             this.bouncerRotation = bouncerRotation;
+            this.isDropped = isDropped;
+            this.sing = sing;
         }
     
     }
@@ -29,20 +34,19 @@ using UnityEngine.Serialization;
     {
         public TextMeshProUGUI bouncerText;
         public Renderer blueSphereRenderer;
-        public BouncerData BouncerData; 
+        public BouncerData BouncerData { get; set; } 
+        public BouncerBehaviors Behaviors;
         public Color originalColor;
         public Color[] colors;
         public Vector3 originalPosition;
         public string sing = "+";
         public int bounceNumber = 1;
-        public BouncerBehaviors Behaviors;
-
         void Start()
         {
             originalPosition = transform.position;
             bouncerText.text = "+" + 1;
             Behaviors = GetComponent<BouncerBehaviors>();
-            BouncerData = new BouncerData(ref bounceNumber, originalPosition , transform.rotation);
+            BouncerData = new BouncerData(ref bounceNumber, originalPosition , transform.rotation, false,"+");
             GameSaveData.Instance.BouncerDataList.Add(BouncerData);
         }
         public void IncrementBouncerNumber()
@@ -66,9 +70,6 @@ using UnityEngine.Serialization;
             }
             blueSphereRenderer.material.color = Color.white;  // Ensure it ends exactly at white
 
-            // Wait for 0.5 seconds
-
-            // Transition back to the original color
             timeElapsed = 0f;
             while (timeElapsed < duration)
             {
@@ -82,30 +83,32 @@ using UnityEngine.Serialization;
         public void DestroySelf()
         {
             GameSaveData.Instance.BouncerDataList.Remove(BouncerData);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         public static GameObject InstantiateBouncer(GameObject prefab, BouncerData bouncerData = null, Transform parent = null)
         {
             var newBouncer = Instantiate(prefab);
+            var bouncerScript =  newBouncer.GetComponent<Bouncer>();
             if(parent != null)
             {
                 newBouncer.transform.position = parent.position;
                 newBouncer.transform.rotation = parent.rotation;
+                
             }
             
-            var bouncerScript =  newBouncer.GetComponent<Bouncer>();
             if (bouncerData != null)
             {
-                 bouncerScript.BouncerData = bouncerData;
                 bouncerScript.originalPosition = bouncerData.bouncerPosition;
                 newBouncer.transform.position = bouncerData.bouncerPosition;
                 newBouncer.transform.rotation = bouncerData.bouncerRotation;
-                bouncerScript.bouncerText.text = "+" + bouncerData.bouncerNumber;
+                bouncerScript.BouncerData = bouncerData;
+                bouncerScript.sing = bouncerData.sing;
+                bouncerScript.bouncerText.text = bouncerData.sing + bouncerData.bouncerNumber;
                 bouncerScript.Behaviors = bouncerScript.gameObject.GetComponent<BouncerBehaviors>();
             }
             else
             {
-                bouncerScript.BouncerData = new BouncerData(ref bouncerScript.bounceNumber, newBouncer.transform.position, newBouncer.transform.rotation);
+                bouncerScript.BouncerData = new BouncerData(ref bouncerScript.bounceNumber, newBouncer.transform.position, newBouncer.transform.rotation, false,"+");
             }
             
             return newBouncer;

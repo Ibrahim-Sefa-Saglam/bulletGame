@@ -9,8 +9,13 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
     private Bouncer _bouncerAttributes;
     private Camera _mainCamera;
     public bool isDragging = false;
-    public bool isDropped = false; 
-    public bool dragable = true;  
+    public bool dragable = true;
+
+    public bool isDropped
+    {
+        get { return _bouncerAttributes.BouncerData.isDropped;}
+        set{ _bouncerAttributes.BouncerData.isDropped = value; }
+    }
     void Start()
     {
         InteractableObject = gameObject;
@@ -22,7 +27,6 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
        
         // Check the tag of the collided object
         if(collision.gameObject.CompareTag("bouncer")){
-
             _collidedObject = collision.gameObject;
         }
         else if (collision.gameObject.CompareTag("bouncerPoint_+") || collision.gameObject.CompareTag("bouncerPoint_x")) // if collided with bouncerPoint_+/bouncerPoint_x assing new object, when the assingment is one with onDrop change the bouncerPoints tag, 
@@ -72,26 +76,25 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
         {
             if (_collidedObject.CompareTag("bouncer"))
             {      
-                Bouncer_scr collidedObjectScript = _collidedObject.GetComponent<Bouncer_scr>();       
-                if(collidedObjectScript.sing != _bouncerAttributes.sing || collidedObjectScript.bounceNumber != _bouncerAttributes.bounceNumber) {
+                Bouncer collidedObjectScript = _collidedObject.GetComponent<Bouncer>();       
+                if(collidedObjectScript.sing != _bouncerAttributes.sing || !Mathf.Approximately(collidedObjectScript.bounceNumber, _bouncerAttributes.bounceNumber)) {
                     transform.position = _bouncerAttributes.originalPosition;
                     return;
                 }
                 
-                _bouncerAttributes.IncrementBouncerNumber();
+                collidedObjectScript.IncrementBouncerNumber();
                 _bouncerAttributes.DestroySelf();
             }
             else if (_collidedObject.CompareTag("bouncerPoint_+"))
             {
-                bool isPlaced = PlaceBouncer(_collidedObject);// bouncerPointScr.PlaceBouncer(this.gameObject);
-                if(isPlaced)
-                {
-                    _collidedObject.GetComponent<Collider>().enabled = false;
-                    _bouncerAttributes.DestroySelf();
-                }
-                else{
-                    transform.position = _bouncerAttributes.originalPosition;
-                }
+                _collidedObject.GetComponent<Collider>().enabled = false;
+
+                transform.position = _collidedObject.transform.position;
+                GetComponent<BouncerData>().bouncerPosition = _collidedObject.transform.position;
+                
+                dragable = false;
+                
+                gameObject.layer = 0;
             }
             else if(_collidedObject.CompareTag("bouncerPoint_x")){} // WILL BE FILLED LATER
         }
@@ -101,18 +104,7 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
         }
         isDropped = false;
     }
-    public bool PlaceBouncer(GameObject bouncerPoint)
-    {
-        GameObject newBouncer = Instantiate(gameObject, bouncerPoint.transform.position, bouncerPoint.transform.rotation);
-        
-        newBouncer.transform.localScale = new Vector3( 2.5f, 2.5f, transform.localScale.z);
-        
-        newBouncer.GetComponent<Bouncer_scr>().dragable = false;
-        newBouncer.layer = 0;
-        newBouncer.GetComponent<Bouncer_scr>().bounceNumber = GetComponent<Bouncer_scr>().bounceNumber;
     
-        return true;
-    }
     public void HandlePanleBulletCollision(IBullet bullet){
         bullet.BulletInfo.Damage += _bouncerAttributes.bounceNumber;
         bullet.BulletInfo.BulletText = bullet.BulletInfo.Damage.ToString();

@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4981114f-80da-4a1c-bafa-2e181a6ae258" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/BouncerPrefabs/bouncer 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/BouncerPrefabs/bouncer 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerBehaviors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerBehaviors.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,14 +32,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/477fedca0519411db130fd12d5c46b611fe00/91/f71fd0f6/RigidbodyConstraints.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/5c/d612a9e9/Void.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a32ab74da9ab4308ad5497a9a178f6fc7000/61/10ff8ce5/Canvas.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Camera_scr.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/BulletInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Gun/Clip_scr.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Gun/Gun_scr.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/IBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.10.3/Runtime/Behaviours/CinemachineBrain.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.6.0/Editor/UI/Tree/DrawTreeViewEmptyState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.6.0/Editor/ViewSwitcher.cs" root0="SKIP_HIGHLIGHTING" />
@@ -56,7 +54,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "Standalone Player.Start Unity.executor": "Run",
     "Standalone Player.Unit Tests (batch mode).executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "saving",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

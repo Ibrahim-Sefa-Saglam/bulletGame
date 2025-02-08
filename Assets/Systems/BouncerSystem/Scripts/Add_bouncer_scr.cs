@@ -14,9 +14,9 @@ public class Add_bouncer_scr : MonoBehaviour
     void Start()
     {
         bouncerData = gameData.BouncerDataList;
-        Debug.Log(bouncerData.Count);
         for(int i=0; i<bouncerData.Count;i++){
-            Bouncer.InstantiateBouncer(bouncerPrefab, bouncerData[i]);
+            GameObject newBouncer = Bouncer.InstantiateBouncer(bouncerPrefab, bouncerData[i]);
+            
         }
     }
     public void OnClick(){
@@ -25,11 +25,13 @@ public class Add_bouncer_scr : MonoBehaviour
             bool createBouncer = true;
             for(int k=0; k<bouncerData.Count;k++)
             { 
-                if(bouncerData[k].bouncerPosition == BouncerCells[i].transform.position) createBouncer = false;
+                if(bouncerData[k].bouncerPosition == BouncerCells[i].transform.position || bouncerData[k].isDropped) createBouncer = false;
+                
+                 
             }
             if(createBouncer)
             {
-                Bouncer.InstantiateBouncer(bouncerPrefab, null, BouncerCells[i].transform);
+                GameObject  newBouncer = Bouncer.InstantiateBouncer(bouncerPrefab, null, BouncerCells[i].transform);
                 return;
             }
 

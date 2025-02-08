@@ -206,7 +206,6 @@ GameObject:
   - component: {fileID: 6172155183313494932}
   - component: {fileID: 6194170335141181269}
   - component: {fileID: 1593572620676301201}
-  - component: {fileID: 20962395197500173}
   - component: {fileID: 3449983436039877598}
   - component: {fileID: 5440210978378364129}
   - component: {fileID: 196907853925248558}
@@ -227,7 +226,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1791018679403426852}
@@ -282,33 +281,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &20962395197500173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6871353535926740912}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0927518ab9eac4245a26fc6117759467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  origin: {x: 0, y: 0, z: 0}
-  bouncerText: {fileID: 2619874924214525824}
-  blueSphereRenderer: {fileID: 2314755855034428405}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
-  colors:
-  - {r: 0, g: 0.7137255, b: 0.67058825, a: 0}
-  - {r: 0, g: 0.7137255, b: 0.16470589, a: 0}
-  - {r: 0.25490198, g: 0.84313726, b: 0, a: 0}
-  - {r: 0.9882353, g: 0.9882353, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0, a: 0}
-  isDragging: 0
-  isDropped: 0
-  dragable: 1
-  bounceNumber: 1
-  sing: +
 --- !u!136 &3449983436039877598
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -361,6 +333,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bouncerText: {fileID: 2619874924214525824}
   blueSphereRenderer: {fileID: 2314755855034428405}
+  BouncerData:
+    bouncerNumber: 0
+    bouncerPosition: {x: 0, y: 0, z: 0}
+    bouncerRotation: {x: 0, y: 0, z: 0, w: 0}
   originalColor: {r: 0.21960786, g: 0.6509804, b: 0.63529414, a: 0}
   colors:
   - {r: 0.21960786, g: 0.6509804, b: 0.63529414, a: 0}
