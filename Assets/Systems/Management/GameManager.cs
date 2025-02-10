@@ -2,11 +2,13 @@ using Systems.SaveSystem;
 using UnityEngine;
 
 public static class GameManager  // Manages Key Object generation and camera orientation
-{   
-    
+{
+
+    public static GameObject Gun;
     public static UIHandler UIHandler;
     private static GameSaveData _gameSaveData;
-     
+    
+    
     static GameManager()
     {
         GameStateHandler.OnEnterState += OnEnterStateBehaviorGameManager;
@@ -26,6 +28,8 @@ public static class GameManager  // Manages Key Object generation and camera ori
         } 
     }
     public static void SetUIHandler(UIHandler handler){ UIHandler = handler; }
+    public static void SetGun(GameObject gun){ Gun = gun; }
+    
     public static void ResetGame()
     {
         LevelManager.ResetToFirstLevel();
@@ -39,6 +43,5 @@ public static class GameManager  // Manages Key Object generation and camera ori
     {
         GameSaveData.Instance.Load();
     }
-    
 }
-
+ 

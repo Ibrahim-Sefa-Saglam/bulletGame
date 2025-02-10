@@ -1,11 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using Systems.RunnerSystem;
 using TMPro;
-using UnityEditor.Callbacks;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class GateScript : MonoBehaviour, IBulletInteractable, IPlayerInteractable
 {

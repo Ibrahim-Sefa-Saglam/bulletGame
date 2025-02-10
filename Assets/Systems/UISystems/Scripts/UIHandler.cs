@@ -2,9 +2,6 @@ using System;
 using Systems.SaveSystem;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Serialization;
-
 public class UIHandler: MonoBehaviour 
 {
     

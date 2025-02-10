@@ -1,16 +1,7 @@
-
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using Systems.RunnerSystem;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
-
 public class BulletScr : MonoBehaviour, IBullet
 {
     public ParticleSystem particleEffect;

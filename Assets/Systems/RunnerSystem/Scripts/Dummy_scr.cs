@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Systems.RunnerSystem;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable

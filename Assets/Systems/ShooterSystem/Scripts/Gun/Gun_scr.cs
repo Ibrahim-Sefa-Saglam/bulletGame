@@ -7,7 +7,7 @@ public class GunScr : MonoBehaviour
     public GameObject bulletPoint;
     public GameObject clip;
     public Rigidbody rb;
-    public Clip_scr clipScript;
+    public ClipScript clipScript;
     private Vector3 startingPosition;
     public float forwardSpeed = 5f;
     public float bulletLifetime = 3f;
@@ -22,10 +22,10 @@ public class GunScr : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
-        clipScript = clip.GetComponent<Clip_scr>();
+        clipScript = clip.GetComponent<ClipScript>();
         this.enabled = false;
         clipScript.enabled = false;
-
+        GameManager.SetGun(gameObject);
     }
 
     private void Start() {
@@ -122,7 +122,7 @@ public class GunScr : MonoBehaviour
      
     public void StartAllGunBehavior()
         {
-            clipScript = clip.GetComponent<Clip_scr>();
+            clipScript = clip.GetComponent<ClipScript>();
             this.enabled = true;
             clipScript.enabled = true;
         }
