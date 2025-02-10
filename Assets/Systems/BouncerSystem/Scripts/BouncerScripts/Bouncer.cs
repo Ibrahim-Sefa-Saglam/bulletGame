@@ -38,10 +38,7 @@ using UnityEngine.Serialization;
      bouncerPosition = bouncerObject.transform.position;   
      bouncerRotation = bouncerObject.transform.rotation;   
     }
-
-   
 }
-
     public class Bouncer: MonoBehaviour
     {
         public TextMeshProUGUI bouncerText;
