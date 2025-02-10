@@ -12,9 +12,9 @@ using UnityEngine.Serialization;
 {
     private static int _bouncerCount = 0;
 
+    public GameObject bouncerObject;
     [SerializeField]
     public int bouncerNumber;
-    public Transform bouncerTransform;// only carries the position, you can give the transform of another object without changing with any other property other than position and rotation
     [SerializeField]
     public Vector3 bouncerPosition;
     [SerializeField]
@@ -24,24 +24,21 @@ using UnityEngine.Serialization;
     [SerializeField]
     public string sing;
 
-    public BouncerData(ref int bouncerNumber, Transform bouncerTransform, bool isDragable, ref string sing)
+    public BouncerData(GameObject newBouncer,ref int bouncerNumber, bool isDragable, ref string sing)
     {
+        bouncerObject = newBouncer;
         _bouncerCount++; // Increment global count
         this.bouncerNumber = bouncerNumber;
-        this.bouncerTransform = bouncerTransform;
         this.isDragable = isDragable;
         this.sing = sing;
     }
 
     public void SerializeData()
     {
-     bouncerPosition = bouncerTransform.position;   
-     bouncerRotation = bouncerTransform.rotation;   
+     bouncerPosition = bouncerObject.transform.position;   
+     bouncerRotation = bouncerObject.transform.rotation;   
     }
-
-   
 }
-
     public class Bouncer: MonoBehaviour
     {
         public TextMeshProUGUI bouncerText;
@@ -54,7 +51,8 @@ using UnityEngine.Serialization;
         public int bounceNumber = 1;
         void Start()
         {
-            BouncerData ??= new BouncerData(ref bounceNumber, transform, true, ref sing);
+            BouncerData ??= new BouncerData(this.gameObject,ref bounceNumber, true, ref sing);
+            BouncerData.bouncerObject = this.gameObject;
             originalPosition = transform.position;
             bouncerText.text = sing + bounceNumber;
         }
@@ -108,7 +106,6 @@ using UnityEngine.Serialization;
             if (bouncerData != null)// if the bouncer data is given, set the new objects properties 
             {
                 newBouncer.transform.position = bouncerData.bouncerPosition;
-                bouncerData.bouncerTransform  = newBouncer.transform;
                 newBouncer.transform.rotation = bouncerData.bouncerRotation;
                 
                 bouncerScript.BouncerData = bouncerData;
@@ -121,7 +118,7 @@ using UnityEngine.Serialization;
             }
             else // if the bouncer data is null, construct the new data with the current bouncer's properties
             {
-                bouncerScript.BouncerData = new BouncerData(ref bouncerScript.bounceNumber, newBouncer.transform, true,ref bouncerScript.sing);
+                bouncerScript.BouncerData = new BouncerData(newBouncer, ref bouncerScript.bounceNumber, true,ref bouncerScript.sing);
             }
             
             return newBouncer;
