@@ -80,14 +80,11 @@ public class BulletScr : MonoBehaviour, IBullet
     public void InitializeInPanel(){
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
 
-        float newDamage = Mathf.FloorToInt( Random.Range(5,30.99f));
+        float newDamage = 1;
         BulletInfo newBulletInfo = new BulletInfo(newDamage);
         BulletInfo = newBulletInfo;
         inPanel = true;
-        
-        if(DamageRef is < 5 or > 30){
-            DamageRef  = 10f;
-        }
+    
         BulletInfo.BulletText = DamageRef.ToString();        
         numberText.text = DamageRef.ToString();
     }

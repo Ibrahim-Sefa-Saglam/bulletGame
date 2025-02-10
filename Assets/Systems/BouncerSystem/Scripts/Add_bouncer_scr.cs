@@ -39,9 +39,7 @@ public class Add_bouncer_scr : MonoBehaviour
     public void OnClick(){
 
         if(CoinScore < 50) return;
-        CoinScore-=50;
-        
-        GameManager.UIHandler.UpdateUICoinNumber(CoinScore);
+        Debug.Log("is in");
         
         for(int i=0; i<BouncerCells.Length;i++){
             bool createBouncer = true;
@@ -56,6 +54,10 @@ public class Add_bouncer_scr : MonoBehaviour
             {
                 GameObject  newBouncer = Bouncer.InstantiateBouncer(bouncerPrefab, null, BouncerCells[i].transform);
                 bouncerData.Add(newBouncer.GetComponent<Bouncer>().BouncerData);
+
+                CoinScore-=50;
+                GameManager.UIHandler.UpdateUICoinNumber(CoinScore);
+
                 return;
             }
 

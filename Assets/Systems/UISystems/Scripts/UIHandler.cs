@@ -101,15 +101,18 @@ public class UIHandler: MonoBehaviour
         }
         targetCanvas.SetActive(true);
     }
-
     public void  UpdateUICoinNumber(int coinNumber)
     {
         inGameCanvasCoinText.text = ": " + coinNumber.ToString();
     }
-
     public void SettigsButtonAction() {settingsPanel.SetActive(!settingsPanel.activeSelf); }
     public void SettingsResetButtonAction(){ GameManager.ResetGame();}
     public void SettingsWinButtonAction() { GameStateHandler.SetState(GameStateHandler.GameStates.Win);}
     public void SettingsLoseButtonAction() { GameStateHandler.SetState(GameStateHandler.GameStates.Lose);}
+    public void SettingsCoinButtonAction()
+    {
+        GameSaveData.Instance.coinScore += 50;
+        UpdateUICoinNumber(GameSaveData.Instance.coinScore);
+    }
 }
 
