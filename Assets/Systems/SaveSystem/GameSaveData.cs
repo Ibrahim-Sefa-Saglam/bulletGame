@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Systems.SaveSystem
@@ -40,20 +41,23 @@ namespace Systems.SaveSystem
                 
                 levelIndex = 0;
                 coinScore = 0;
-
-                string defaultJson = JsonUtility.ToJson(this);
+                
+                string defaultJson = JsonUtility.ToJson(this,true);
                 File.WriteAllText(Application.persistentDataPath + "/GameSaveData.json", defaultJson);
             }
             else
             {
-                var file = JsonUtility.ToJson(this);
+                foreach (var bouncerData in BouncerDataList)
+                {
+                    bouncerData.SerializeData();
+                }
+                var file = JsonUtility.ToJson(this,true);
                 File.WriteAllText(Application.persistentDataPath + "/GameSaveData.json", file);
             }
         }
 
         public override SaveData Load()
         {
-            Debug.Log(Application.persistentDataPath + "/GameSaveData.json");
             if (!File.Exists(Application.persistentDataPath + "/GameSaveData.json"))
             {
                 Debug.LogWarning("Save file not found! Creating a new one.");

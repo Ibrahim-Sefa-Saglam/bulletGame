@@ -9,13 +9,12 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
     private Bouncer _bouncerAttributes;
     private Camera _mainCamera;
     public bool isDragging = false;
-    public bool dragable = true;
-
-    public bool isDropped
-    {
-        get { return _bouncerAttributes.BouncerData.isDropped;}
-        set{ _bouncerAttributes.BouncerData.isDropped = value; }
+    public bool dragable {
+        get { return _bouncerAttributes.BouncerData.isDragable;}
+        set{ _bouncerAttributes.BouncerData.isDragable = value; }
     }
+    public bool isDropped;
+    
     void Start()
     {
         InteractableObject = gameObject;
@@ -90,7 +89,7 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
                 _collidedObject.GetComponent<Collider>().enabled = false;
 
                 transform.position = _collidedObject.transform.position;
-                GetComponent<BouncerData>().bouncerPosition = _collidedObject.transform.position;
+                GetComponent<Bouncer>().BouncerData.bouncerPosition = _collidedObject.transform.position;
                 
                 dragable = false;
                 
@@ -112,9 +111,7 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
     }
     public void InteractBullet(System.Action callback, IBullet bullet, out bool isDestroy)
     {
-        Debug.Log(21243);
         isDestroy = false;        
-        if(!isDropped) return;
         if(bullet == null) return;
         HandlePanleBulletCollision(bullet);
     }
