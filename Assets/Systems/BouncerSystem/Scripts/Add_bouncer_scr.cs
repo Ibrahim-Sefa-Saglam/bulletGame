@@ -11,6 +11,12 @@ public class Add_bouncer_scr : MonoBehaviour
     public GameObject bouncerPrefab; 
     public static GameSaveData gameData;
     public List<BouncerData> bouncerData;
+    public int CoinScore
+    {
+        get => gameData.coinScore;
+        set => gameData.coinScore = value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,18 +38,20 @@ public class Add_bouncer_scr : MonoBehaviour
     }
     public void OnClick(){
 
+        if(CoinScore < 50) return;
+        CoinScore-=50;
+        
+        GameManager.UIHandler.UpdateUICoinNumber(CoinScore);
+        
         for(int i=0; i<BouncerCells.Length;i++){
-            Debug.Log("first for i: "+i);
             bool createBouncer = true;
             for(int k=0; k<bouncerData.Count;k++)
             { 
                 if(bouncerData[k].bouncerObject.transform.position == BouncerCells[i].transform.position ) createBouncer = false;
-                Debug.Log("second for K, createVouncer: "+k+" "+createBouncer);
                 
                  
             }
 
-            Debug.Log("createBounce: "+createBouncer);
             if(createBouncer)
             {
                 GameObject  newBouncer = Bouncer.InstantiateBouncer(bouncerPrefab, null, BouncerCells[i].transform);
