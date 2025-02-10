@@ -25,7 +25,7 @@ public class Add_bouncer_scr : MonoBehaviour
             foreach (var point in BouncerPointsOnPanel)
             {
                 if(newBouncer.transform.position == point.transform.position) point.GetComponent<Collider>().enabled = false;
-                
+                 
             }
         }
         
@@ -37,9 +37,8 @@ public class Add_bouncer_scr : MonoBehaviour
             bool createBouncer = true;
             for(int k=0; k<bouncerData.Count;k++)
             { 
-                if(bouncerData[k].bouncerPosition == BouncerCells[i].transform.position ) createBouncer = false;
-                else createBouncer = true;
-            Debug.Log("second for K, createVouncer: "+k+" "+createBouncer);
+                if(bouncerData[k].bouncerObject.transform.position == BouncerCells[i].transform.position ) createBouncer = false;
+                Debug.Log("second for K, createVouncer: "+k+" "+createBouncer);
                 
                  
             }
@@ -48,7 +47,6 @@ public class Add_bouncer_scr : MonoBehaviour
             if(createBouncer)
             {
                 GameObject  newBouncer = Bouncer.InstantiateBouncer(bouncerPrefab, null, BouncerCells[i].transform);
-                
                 bouncerData.Add(newBouncer.GetComponent<Bouncer>().BouncerData);
                 return;
             }

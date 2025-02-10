@@ -300,8 +300,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7722325
-  m_Height: 1.544465
+  m_Radius: 0.5764576
+  m_Height: 1.441144
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5440210978378364129
@@ -318,7 +318,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDragging: 0
   isDropped: 0
-  dragable: 1
 --- !u!114 &196907853925248558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,10 +332,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bouncerText: {fileID: 2619874924214525824}
   blueSphereRenderer: {fileID: 2314755855034428405}
-  BouncerData:
-    bouncerNumber: 0
-    bouncerPosition: {x: 0, y: 0, z: 0}
-    bouncerRotation: {x: 0, y: 0, z: 0, w: 0}
   originalColor: {r: 0.21960786, g: 0.6509804, b: 0.63529414, a: 0}
   colors:
   - {r: 0.21960786, g: 0.6509804, b: 0.63529414, a: 0}
@@ -347,7 +342,6 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   sing: +
   bounceNumber: 1
-  Behaviors: {fileID: 5440210978378364129}
 --- !u!1 &7771943153607351119
 GameObject:
   m_ObjectHideFlags: 0
