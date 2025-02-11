@@ -54,6 +54,8 @@ MonoBehaviour:
   inGameCanvas: {fileID: 718691890497810058}
   settingsPanel: {fileID: 6009843442603705950}
   inGameCanvasCoinText: {fileID: 8622221010436023376}
+  levelPanel: {fileID: 187447568763113671}
+  coloredLevelBar: {fileID: 5907143314673941610}
 --- !u!1001 &559273343068849237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -634,6 +636,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6185853437305863734, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6441020336475500051, guid: ae3512042e913bc468209ed20884eb17,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -735,6 +742,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3512042e913bc468209ed20884eb17, type: 3}
+--- !u!1 &187447568763113671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8851834715319955582, guid: ae3512042e913bc468209ed20884eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 8665482398319714489}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &718691890497810058 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8194497585141796403, guid: ae3512042e913bc468209ed20884eb17,
@@ -747,6 +760,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8665482398319714489}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5907143314673941610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3007166330320821459, guid: ae3512042e913bc468209ed20884eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 8665482398319714489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6009843442603705950 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3109377726275249895, guid: ae3512042e913bc468209ed20884eb17,

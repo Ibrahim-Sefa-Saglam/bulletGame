@@ -2,6 +2,9 @@ using System;
 using Systems.SaveSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
+
 public class UIHandler: MonoBehaviour 
 {
     
@@ -12,16 +15,17 @@ public class UIHandler: MonoBehaviour
     private GameObject[] _uıCanvases;
     public GameObject settingsPanel;
     public TextMeshProUGUI inGameCanvasCoinText;
-    
-    
+    public GameObject levelPanel;
+    public Image coloredLevelBar;
+    public float BarValue => GameSaveData.Instance.exp/ (GameSaveData.Instance.BulletLevel * 100f);
+
     void Awake()
     {   
         GameManager.SetUIHandler(this);  
+        GameStateHandler.OnEnterState += OnEnterStateBehaviours;
         _uıCanvases = new [] {gameOverCanvas, winCanvas,menuCanvas,inGameCanvas};
         SetCanvas(menuCanvas);
         settingsPanel.SetActive(false);
-        GameStateHandler.OnEnterState += OnEnterStateBehaviours;
-        
         inGameCanvasCoinText.text = GameSaveData.Instance.coinScore.ToString();
 
     }
@@ -40,9 +44,11 @@ public class UIHandler: MonoBehaviour
                 ActivateWinUI();
                 break;
             case GameStateHandler.GameStates.Runner:
+                levelPanel.SetActive(true);
                 ActivateInGameUI();
                 break;
             case GameStateHandler.GameStates.Bouncer:
+                levelPanel.SetActive(false);
                 ActivateInGameUI();
                 break;
             case GameStateHandler.GameStates.Empty:
