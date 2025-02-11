@@ -1885,6 +1885,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: bulletGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 2439003396869875915, guid: 13b20b130e2d04c43bbd4b3cd3de9c87,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439003396869875915, guid: 13b20b130e2d04c43bbd4b3cd3de9c87,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439003396869875915, guid: 13b20b130e2d04c43bbd4b3cd3de9c87,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 4288053381003120929, guid: 13b20b130e2d04c43bbd4b3cd3de9c87,
         type: 3}
       propertyPath: m_LocalScale.x

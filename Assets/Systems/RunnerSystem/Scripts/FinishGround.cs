@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FinishGround : MonoBehaviour, IPlayerInteractable
@@ -18,7 +16,6 @@ public class FinishGround : MonoBehaviour, IPlayerInteractable
         
     }
 
-    public bool CanInteract { get; set; }
     public void InteractPlayer(GameObject player)
     {
         GameStateHandler.SetState( GameStateHandler.GameStates.Win);

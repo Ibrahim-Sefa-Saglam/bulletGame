@@ -6,10 +6,6 @@ using UnityEngine;
 
 public interface IPlayerInteractable
 {
-    bool CanInteract{
-        get;
-        set;
-    }
    void InteractPlayer(GameObject player);
 }
 

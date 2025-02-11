@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Systems.RunnerSystem;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
@@ -18,7 +15,6 @@ public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
     
     private bool exponantial =  false;
 
-    public bool CanInteract { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     
     void Start()
     {

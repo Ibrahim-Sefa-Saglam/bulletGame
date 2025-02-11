@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Systems.SaveSystem
@@ -13,6 +12,9 @@ namespace Systems.SaveSystem
         public int coinScore;
         [SerializeField]
         public List<BouncerData> BouncerDataList = new List<BouncerData>();
+        public float exp;
+        public int BulletLevel;
+        
         
         private static GameSaveData _instance;
 
@@ -41,7 +43,8 @@ namespace Systems.SaveSystem
                 
                 levelIndex = 0;
                 coinScore = 0;
-                
+                exp  = 0;
+                BulletLevel  =1 ;       
                 string defaultJson = JsonUtility.ToJson(this,true);
                 File.WriteAllText(Application.persistentDataPath + "/GameSaveData.json", defaultJson);
             }
@@ -51,6 +54,8 @@ namespace Systems.SaveSystem
                 {
                     bouncerData.SerializeData();
                 }
+
+                BulletLevel =  1;
                 var file = JsonUtility.ToJson(this,true);
                 File.WriteAllText(Application.persistentDataPath + "/GameSaveData.json", file);
             }
@@ -69,6 +74,8 @@ namespace Systems.SaveSystem
             levelIndex = gameSaveData.levelIndex;
             coinScore = gameSaveData.coinScore;
             BouncerDataList = gameSaveData.BouncerDataList;
+            exp = gameSaveData.exp;
+            BulletLevel = gameSaveData.BulletLevel;
             
             return gameSaveData;
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +9,6 @@ public class PanelBullet_scr : MonoBehaviour
     private bool isCounting = false; 
     public bool inPanel = true;
     private float countdown = 20f;
-    public bool CanInteract { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     void Start()
     {   

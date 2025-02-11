@@ -1,11 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using Systems.RunnerSystem;
 using TMPro;
-using UnityEditor.Callbacks;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class GateScript : MonoBehaviour, IBulletInteractable, IPlayerInteractable
 {
@@ -33,7 +29,6 @@ public class GateScript : MonoBehaviour, IBulletInteractable, IPlayerInteractabl
     private GunScr wplayerScr;
     [SerializeField]
     private BulletScr bulletScr;
-    public bool CanInteract { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
 
     void Start()

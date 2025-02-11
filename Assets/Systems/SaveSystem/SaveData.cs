@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿
 namespace Systems.SaveSystem
 {
     public abstract class SaveData

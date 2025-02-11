@@ -18,7 +18,6 @@ public class Coin : MonoBehaviour, IPlayerInteractable
     {
         CoinHover();         
     }
-    public bool CanInteract { get; set; }
     public void InteractPlayer(GameObject player)
     {
         IncreasePlayerCoins(1);  // increase
@@ -27,7 +26,8 @@ public class Coin : MonoBehaviour, IPlayerInteractable
     public void CreateCoinParticleEffect(){
         ParticleSystem coinParticleInstance = Instantiate(CoinParticle,transform.position,transform.rotation);
         coinParticleInstance.Play();
-        Destroy(coinParticleInstance,.3f);
+        var main = coinParticleInstance.main;
+        main.stopAction = ParticleSystemStopAction.Destroy;
         
         DestroySelf();
     }    

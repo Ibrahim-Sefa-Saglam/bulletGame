@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Security.Cryptography.X509Certificates;
 using Systems.RunnerSystem;
 using TMPro;
 using UnityEngine;
@@ -22,7 +21,6 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public bool dragable = true;    // Indicates if the object has been dropped
     public float bounceNumber = 1;
     public string sing = "+"; // Later "x" will be added for multiplication
-    public bool CanInteract { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     void Start()
     {
