@@ -7,11 +7,14 @@
     <list default="true" id="4981114f-80da-4a1c-bafa-2e181a6ae258" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/BouncerPrefabs/PanelParts/2D.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/BouncerPrefabs/PanelParts/2D.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerBehaviors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/BouncerBehaviors.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/SaveSystem/GameSaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/GameSaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Conveyer_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Conveyer_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinParticle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinParticle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinPrefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/ShooterPrefabs/bullet/BulletParticle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/ShooterPrefabs/bullet/BulletParticle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/ShooterPrefabs/clipFiller.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/ShooterPrefabs/clipFiller.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/UIHandler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/UIHandler.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +70,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Standalone Player.Start Unity.executor&quot;: &quot;Run&quot;,
     &quot;Standalone Player.Unit Tests (batch mode).executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;fixClip&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -142,6 +145,9 @@
       <workItem from="1739117088916" duration="2225000" />
       <workItem from="1739129243762" duration="2000" />
       <workItem from="1739171032172" duration="1391000" />
+      <workItem from="1739196590787" duration="65000" />
+      <workItem from="1739196834768" duration="1407000" />
+      <workItem from="1739209919605" duration="1623000" />
     </task>
     <task id="LOCAL-00001" summary="0">
       <option name="closed" value="true" />
@@ -197,10 +203,10 @@
           <line>64</line>
           <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\ShooterSystem\Scripts\Gun\Gun_scr.cs" containingFunctionPresentation="Method 'FireFromClip'">
             <startOffsets>
-              <option value="1956" />
+              <option value="1999" />
             </startOffsets>
             <endOffsets>
-              <option value="1957" />
+              <option value="2000" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="38" />
@@ -208,54 +214,15 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Dummy_scr.cs</url>
           <line>54</line>
-          <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\RunnerSystem\Scripts\Dummy_scr.cs" containingFunctionPresentation="Method 'Initialize'">
+          <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\RunnerSystem\Scripts\Dummy_scr.cs" containingFunctionPresentation="Method 'InitializeDummy'">
             <startOffsets>
-              <option value="1685" />
+              <option value="1738" />
             </startOffsets>
             <endOffsets>
-              <option value="1704" />
+              <option value="1745" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Gate_scr.cs</url>
-          <line>51</line>
-          <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\RunnerSystem\Scripts\Gate_scr.cs" containingFunctionPresentation="Method 'ChangeGateColor'">
-            <startOffsets>
-              <option value="1545" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1546" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Gate_scr.cs</url>
-          <line>74</line>
-          <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\RunnerSystem\Scripts\Gate_scr.cs" containingFunctionPresentation="Method 'InitializeGate'">
-            <startOffsets>
-              <option value="2364" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2377" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Systems/UISystems/Scripts/UIHandler.cs</url>
-          <line>96</line>
-          <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\UISystems\Scripts\UIHandler.cs" containingFunctionPresentation="Method 'SetCanvas'">
-            <startOffsets>
-              <option value="2803" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2804" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

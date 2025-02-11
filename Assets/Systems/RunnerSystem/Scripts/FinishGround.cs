@@ -16,7 +16,6 @@ public class FinishGround : MonoBehaviour, IPlayerInteractable
         
     }
 
-    public bool CanInteract { get; set; }
     public void InteractPlayer(GameObject player)
     {
         GameStateHandler.SetState( GameStateHandler.GameStates.Win);

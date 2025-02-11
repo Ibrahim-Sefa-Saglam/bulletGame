@@ -13,7 +13,6 @@ public class Conveyer_scr : MonoBehaviour, IBulletInteractable
     public float offset;
     private float conveyerForce;
 
-    public bool CanInteract { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     
 
     void Start()
@@ -27,12 +26,7 @@ public class Conveyer_scr : MonoBehaviour, IBulletInteractable
     {   
         conveyerForce = conveyerForceMultiplier * gunScr.rate;
         MoveConveyerBelt();
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        
-    }
+    } 
     void MoveConveyerBelt()
     {
         float timeOffset = - Time.time * scrollSpeed;

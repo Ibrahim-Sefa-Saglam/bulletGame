@@ -29,7 +29,6 @@ public class GateScript : MonoBehaviour, IBulletInteractable, IPlayerInteractabl
     private GunScr wplayerScr;
     [SerializeField]
     private BulletScr bulletScr;
-    public bool CanInteract { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
 
     void Start()

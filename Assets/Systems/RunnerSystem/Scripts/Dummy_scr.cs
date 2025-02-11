@@ -15,7 +15,6 @@ public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
     
     private bool exponantial =  false;
 
-    public bool CanInteract { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     
     void Start()
     {

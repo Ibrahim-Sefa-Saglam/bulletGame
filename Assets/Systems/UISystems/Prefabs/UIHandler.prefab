@@ -539,6 +539,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1893117027725490108, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591381400994613258, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4265090057626961932, guid: ae3512042e913bc468209ed20884eb17,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -663,6 +673,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InGameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927813284393572475, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8055577070428659997, guid: ae3512042e913bc468209ed20884eb17,
         type: 3}

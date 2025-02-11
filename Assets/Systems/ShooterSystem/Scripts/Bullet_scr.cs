@@ -68,10 +68,10 @@ public class BulletScr : MonoBehaviour, IBullet
         BulletInfo.BulletText = DamageRef.ToString(); 
         rb.useGravity = false;
     }
-    public void InitializeInPanel(){
+    public void InitializeInPanel(float damageFromParameter){
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
 
-        float newDamage = 1;
+        float newDamage = damageFromParameter;
         BulletInfo newBulletInfo = new BulletInfo(newDamage);
         BulletInfo = newBulletInfo;
         inPanel = true;
@@ -82,7 +82,6 @@ public class BulletScr : MonoBehaviour, IBullet
     private void CreateCollisionEffect(){
        ParticleSystem particleInstance = Instantiate(particleEffect,transform.position,transform.rotation);
        particleInstance.Play();
-       Destroy(particleEffect,.3f);
     }
 
     public void Fire(BulletInfo bulletInfo)

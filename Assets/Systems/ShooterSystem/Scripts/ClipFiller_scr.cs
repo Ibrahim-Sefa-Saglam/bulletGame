@@ -10,7 +10,6 @@ public class ClipFiller : MonoBehaviour, IBulletInteractable
     private List<float> bulletDamageList;
     private ClipScript _clipScr;
 
-    public bool CanInteract { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     public GameObject InteractableObject { get ; set ; }
 
     void Start()

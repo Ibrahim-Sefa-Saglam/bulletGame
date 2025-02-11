@@ -1,20 +1,22 @@
 using System.Collections;
+using Systems.SaveSystem;
+using TMPro;
 using UnityEngine;
 
-public class PanelBulletGenerator_scr : MonoBehaviour
+public class PanelBulletGenerator : MonoBehaviour
 {
+    public TextMeshProUGUI generatorText;
     public GameObject panelBullet;
     public GameObject gun;
     public GunScr GunScr;
     public RectTransform spawnpoint;           // Spawn point for bullets
     public float generationRate;          // Time interval in seconds between bullet generation
-
     private void Start()
     {
-      
+            
             GunScr = gun.GetComponent<GunScr>();
             StartCoroutine(GeneratePanelBulletAtRate());
-     
+            generatorText.text = GameSaveData.Instance.BulletLevel.ToString();
     }
     private IEnumerator GeneratePanelBulletAtRate()
     {
@@ -23,7 +25,7 @@ public class PanelBulletGenerator_scr : MonoBehaviour
         {
             generationRate =  GunScr.rate ;
             BulletScr bulletScr = GeneratePanelBullet(); // Call the bullet generation method
-            bulletScr.InitializeInPanel();
+            bulletScr.InitializeInPanel(GameSaveData.Instance.BulletLevel);
             yield return new WaitForSeconds(1/generationRate); // Wait for the specified rate before generating the next bullet
         }
     }
@@ -39,7 +41,6 @@ public class PanelBulletGenerator_scr : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("panelBullet or spawnpoint is not assigned.");
             return null;
         }
     }
