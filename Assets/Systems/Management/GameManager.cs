@@ -29,7 +29,6 @@ public static class GameManager  // Manages Key Object generation and camera ori
     }
     public static void SetUIHandler(UIHandler handler){ UIHandler = handler; }
     public static void SetGun(GameObject gun){ Gun = gun; }
-    
     public static void ResetGame()
     {
         LevelManager.ResetToFirstLevel();
@@ -43,5 +42,12 @@ public static class GameManager  // Manages Key Object generation and camera ori
     {
         GameSaveData.Instance.Load();
     }
+
+    public static void IncreaseXp(float amount)
+    {
+        GameSaveData.Instance.exp += amount;
+        UIHandler.coloredLevelBar.fillAmount = GameSaveData.Instance.exp / (GameSaveData.Instance.levelIndex * 100 + 100);
+    }
+    
 }
  

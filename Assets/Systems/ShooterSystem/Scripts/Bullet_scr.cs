@@ -13,7 +13,11 @@ public class BulletScr : MonoBehaviour, IBullet
 
     
     private ref float LifetimeRef => ref BulletInfo.Lifetime;
-    private ref float DamageRef => ref BulletInfo.Damage;
+    private float DamageRef
+    {
+        get => BulletInfo.Damage;
+        set => BulletInfo.Damage = value;
+    }
     private ref float VelocityRef => ref BulletInfo.Velocity;  
     private float _elapsedTime = 0f; 
     public float panelGravity = -10f; // Custom gravity force 
@@ -50,7 +54,7 @@ public class BulletScr : MonoBehaviour, IBullet
     }
     public void InitializeForClip(float damage)
     {
-        gameObject.layer = 3; // clipBullet
+        gameObject.layer = 3;
         inPanel = false;
         inClip = true;
         DamageRef = damage;

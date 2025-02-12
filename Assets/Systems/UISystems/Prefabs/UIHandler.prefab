@@ -546,6 +546,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -27.8
       objectReference: {fileID: 0}
+    - target: {fileID: 3007166330320821459, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0.225
+      objectReference: {fileID: 0}
     - target: {fileID: 3591381400994613258, guid: ae3512042e913bc468209ed20884eb17,
         type: 3}
       propertyPath: m_Color.a
@@ -701,6 +706,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311732742771374938, guid: ae3512042e913bc468209ed20884eb17,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -408
       objectReference: {fileID: 0}
     - target: {fileID: 8453035762366363613, guid: ae3512042e913bc468209ed20884eb17,
         type: 3}
