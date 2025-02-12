@@ -74,26 +74,18 @@ public class ClipScript : MonoBehaviour
     }
     public float GetBulletDamageFromList(){
 
-        Debug.Log("Clip: bullet List count" + bulletList.Count);
-        Debug.Log("Clip: cache List count" + cacheClip.Count);
         if(bulletList.Count > 0){
 
-            Debug.Log(" Clip:taken from bulletList");
-            
             float damage =  bulletList[0];
             bulletList.RemoveAt(0);
             return damage;
         }
         else if( cacheClip.Count > 0){
-            
-            Debug.Log(" Clip:taken from cache");
 
             float damage = cacheClip[(int)UnityEngine.Random.Range(0f, cacheClip.Count)];
             return damage;
         }
         else{
-            
-            Debug.Log(" Clip:randomly generated");
             
             return Mathf.Floor(UnityEngine.Random.Range(3f,8f));
         }

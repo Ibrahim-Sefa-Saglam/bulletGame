@@ -26,9 +26,6 @@ public class Camera_scr : MonoBehaviour
             case GameStateHandler.GameStates.Bouncer:
                 ActivateBouncerMode();
                 break;
-            case GameStateHandler.GameStates.Runner:
-                ActivateFollowMode();
-                break;
         }
     }
     public void ActivateBouncerMode()
@@ -40,6 +37,7 @@ public class Camera_scr : MonoBehaviour
     }
     public void ActivateFollowMode()
     {
+        GameStateHandler.SetState(GameStateHandler.GameStates.Runner);
         bouncerVCamera.Priority = 0;
         runnerVCamera.Priority = 10;
         

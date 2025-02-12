@@ -29,19 +29,31 @@ public static class GameManager  // Manages Key Object generation and camera ori
     }
     public static void SetUIHandler(UIHandler handler){ UIHandler = handler; }
     public static void SetGun(GameObject gun){ Gun = gun; }
-    
     public static void ResetGame()
     {
         LevelManager.ResetToFirstLevel();
-        _gameSaveData.BouncerDataList.Clear();
+        _gameSaveData.bouncerDataList.Clear();
         _gameSaveData.coinScore = 0;
         _gameSaveData.levelIndex = 0;
+        _gameSaveData.exp = 0f;
+        _gameSaveData.bulletLevel = 1;
         _gameSaveData.Save();
         UIHandler.UpdateUICoinNumber(0);
     }
     public static void LoadData()
     {
         GameSaveData.Instance.Load();
+    }
+
+    public static void IncreaseXp(float amount)
+    {
+        _gameSaveData.exp += amount;
+        if (_gameSaveData.exp >= _gameSaveData.bulletLevel * 20)
+        {
+            _gameSaveData.bulletLevel++;
+            _gameSaveData.exp = 0;
+        }
+        UIHandler.coloredLevelBar.fillAmount = _gameSaveData.exp / (_gameSaveData.bulletLevel * 20);
     }
 }
  

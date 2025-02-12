@@ -87,7 +87,7 @@ using UnityEngine;
 
         public void DestroySelf()
         {
-            GameSaveData.Instance.BouncerDataList.Remove( GameSaveData.Instance.BouncerDataList.Find(b => b == BouncerData));
+            GameSaveData.Instance.bouncerDataList.Remove( GameSaveData.Instance.bouncerDataList.Find(b => b == BouncerData));
             Destroy(this.gameObject);
         }
         public static GameObject InstantiateBouncer(GameObject prefab, BouncerData bouncerData = null, Transform newBouncerTransform = null)

@@ -5,7 +5,7 @@ using UnityEngine;
 public static class GameStateHandler
 {
     [SerializeField]
-    private static GameStates _currentState = GameStates.Menu;
+    public static GameStates CurrentState = GameStates.Menu;
     public enum GameStates
     {
         Menu = 0,
@@ -25,11 +25,11 @@ public static class GameStateHandler
     }
     public static void SetState(GameStates state)
     {
-        FireOnExitState(_currentState);
-        _currentState = state;
+        FireOnExitState(CurrentState);
+        CurrentState = state;
         
         
-        FireOnEnterState(_currentState);
+        FireOnEnterState(CurrentState);
     }
 
     private static void FireOnEnterState(GameStates state)

@@ -16,7 +16,7 @@ public class PanelBulletGenerator : MonoBehaviour
             
             GunScr = gun.GetComponent<GunScr>();
             StartCoroutine(GeneratePanelBulletAtRate());
-            generatorText.text = GameSaveData.Instance.BulletLevel.ToString();
+            generatorText.text = GameSaveData.Instance.bulletLevel.ToString();
     }
     private IEnumerator GeneratePanelBulletAtRate()
     {
@@ -25,7 +25,7 @@ public class PanelBulletGenerator : MonoBehaviour
         {
             generationRate =  GunScr.rate ;
             BulletScr bulletScr = GeneratePanelBullet(); // Call the bullet generation method
-            bulletScr.InitializeInPanel(GameSaveData.Instance.BulletLevel);
+            bulletScr.InitializeInPanel(GameSaveData.Instance.bulletLevel);
             yield return new WaitForSeconds(1/generationRate); // Wait for the specified rate before generating the next bullet
         }
     }
