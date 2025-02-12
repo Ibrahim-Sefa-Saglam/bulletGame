@@ -17,8 +17,6 @@ public class UIHandler: MonoBehaviour
     public TextMeshProUGUI inGameCanvasCoinText;
     public GameObject levelPanel;
     public Image coloredLevelBar;
-    public float BarValue => GameSaveData.Instance.exp/ (GameSaveData.Instance.BulletLevel * 100f);
-
     void Awake()
     {   
         GameManager.SetUIHandler(this);  
@@ -27,7 +25,7 @@ public class UIHandler: MonoBehaviour
         SetCanvas(menuCanvas);
         settingsPanel.SetActive(false);
         inGameCanvasCoinText.text = GameSaveData.Instance.coinScore.ToString();
-
+        coloredLevelBar.fillAmount = GameSaveData.Instance.exp / (GameSaveData.Instance.bulletLevel * 20);
     }
 
     private void OnEnterStateBehaviours(GameStateHandler.GameStates enterState)

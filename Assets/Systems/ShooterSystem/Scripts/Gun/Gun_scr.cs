@@ -26,13 +26,9 @@ public class GunScr : MonoBehaviour
         this.enabled = false;
         clipScript.enabled = false;
         GameManager.SetGun(gameObject);
-    }
-
-    private void Start() {
         startingPosition = transform.position;
     }
-    
-    
+
     public void Update()
     { 
         elapsedTime+= Time.deltaTime;

@@ -106,6 +106,7 @@ public class BulletScr : MonoBehaviour, IBullet
     public void Hit(Action hitCallback){}
     public void DestroySelf()
     {
+        Debug.Log("damage of this bullet: "+ DamageRef);
         Destroy(this.gameObject);
     }
 }
