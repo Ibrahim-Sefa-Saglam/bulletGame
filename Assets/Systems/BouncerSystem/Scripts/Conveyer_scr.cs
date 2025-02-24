@@ -32,7 +32,7 @@ public class Conveyer_scr : MonoBehaviour, IBulletInteractable
         float timeOffset = - Time.time * scrollSpeed;
         conveyerMaterial.SetTextureOffset("_BaseMap", new(timeOffset,0));
     }
-    void HandlePanleBulletCollision(IBullet bullet){
+    void HandlePanelBulletCollision(IBullet bullet){
         var bulletScr = bullet as BulletScr;
         if (bulletScr != null)
         {
@@ -56,6 +56,6 @@ public class Conveyer_scr : MonoBehaviour, IBulletInteractable
     {
             isDestroy = false;
             if (bullet == null)return;
-            HandlePanleBulletCollision(bullet);
+            HandlePanelBulletCollision(bullet);
     }
 }

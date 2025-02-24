@@ -104,7 +104,7 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
         isDropped = false;
     }
     
-    public void HandlePanleBulletCollision(IBullet bullet){
+    public void HandlePanelBulletCollision(IBullet bullet){
         bullet.BulletInfo.Damage += _bouncerAttributes.bounceNumber;
         bullet.BulletInfo.BulletText = bullet.BulletInfo.Damage.ToString();
         StartCoroutine(_bouncerAttributes.ChangeColorCoroutine());
@@ -113,7 +113,7 @@ public class BouncerBehaviors : MonoBehaviour, IPointerDownHandler, IDragHandler
     {
         isDestroy = false;        
         if(bullet == null) return;
-        HandlePanleBulletCollision(bullet);
+        HandlePanelBulletCollision(bullet);
     }
 
 

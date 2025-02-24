@@ -162,7 +162,7 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         }
         blueSphereRenderer.material.color = originalColor;  // Ensure it ends exactly at the original color
     }
-    public void HandlePanleBulletCollision(IBullet bullet){
+    public void HandlePanelBulletCollision(IBullet bullet){
         bullet.BulletInfo.Damage += bounceNumber;
         bullet.BulletInfo.BulletText = bullet.BulletInfo.Damage.ToString();
         StartCoroutine(ChangeColorCoroutine());
@@ -172,7 +172,7 @@ public class Bouncer_scr : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         isDestroy = false;        
         if(!isDropped) return;
         if(bullet == null) return; 
-        HandlePanleBulletCollision(bullet);        
+        HandlePanelBulletCollision(bullet);        
     }
 
     

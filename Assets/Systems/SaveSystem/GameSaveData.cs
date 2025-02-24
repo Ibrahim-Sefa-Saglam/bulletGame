@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Systems.SaveSystem
 {
@@ -10,10 +11,10 @@ namespace Systems.SaveSystem
     {
         public int levelIndex;
         public int coinScore;
-        [SerializeField]
-        public List<BouncerData> BouncerDataList = new List<BouncerData>();
         public float exp;
-        public int BulletLevel;
+        public int bulletLevel;
+        [SerializeField]
+        public List<BouncerData> bouncerDataList = new List<BouncerData>();
         
         
         private static GameSaveData _instance;
@@ -44,18 +45,17 @@ namespace Systems.SaveSystem
                 levelIndex = 0;
                 coinScore = 0;
                 exp  = 0;
-                BulletLevel  =1 ;       
+                bulletLevel  =1 ;       
                 string defaultJson = JsonUtility.ToJson(this,true);
                 File.WriteAllText(Application.persistentDataPath + "/GameSaveData.json", defaultJson);
             }
             else
             {
-                foreach (var bouncerData in BouncerDataList)
+                foreach (var bouncerData in bouncerDataList)
                 {
                     bouncerData.SerializeData();
                 }
 
-                BulletLevel =  1;
                 var file = JsonUtility.ToJson(this,true);
                 File.WriteAllText(Application.persistentDataPath + "/GameSaveData.json", file);
             }
@@ -73,9 +73,9 @@ namespace Systems.SaveSystem
             var gameSaveData = JsonUtility.FromJson<GameSaveData>(json);
             levelIndex = gameSaveData.levelIndex;
             coinScore = gameSaveData.coinScore;
-            BouncerDataList = gameSaveData.BouncerDataList;
+            bouncerDataList = gameSaveData.bouncerDataList;
             exp = gameSaveData.exp;
-            BulletLevel = gameSaveData.BulletLevel;
+            bulletLevel = gameSaveData.bulletLevel;
             
             return gameSaveData;
         }

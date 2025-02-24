@@ -1,7 +1,11 @@
 using System;
+using System.Collections;
 using Systems.SaveSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
+
 public class UIHandler: MonoBehaviour 
 {
     
@@ -12,18 +16,17 @@ public class UIHandler: MonoBehaviour
     private GameObject[] _uıCanvases;
     public GameObject settingsPanel;
     public TextMeshProUGUI inGameCanvasCoinText;
-    
-    
+    public GameObject levelPanel;
+    public Image coloredLevelBar;
     void Awake()
     {   
         GameManager.SetUIHandler(this);  
+        GameStateHandler.OnEnterState += OnEnterStateBehaviours;
         _uıCanvases = new [] {gameOverCanvas, winCanvas,menuCanvas,inGameCanvas};
         SetCanvas(menuCanvas);
         settingsPanel.SetActive(false);
-        GameStateHandler.OnEnterState += OnEnterStateBehaviours;
-        
         inGameCanvasCoinText.text = GameSaveData.Instance.coinScore.ToString();
-
+        coloredLevelBar.fillAmount = GameSaveData.Instance.exp / (GameSaveData.Instance.bulletLevel * 20);
     }
 
     private void OnEnterStateBehaviours(GameStateHandler.GameStates enterState)
@@ -40,9 +43,11 @@ public class UIHandler: MonoBehaviour
                 ActivateWinUI();
                 break;
             case GameStateHandler.GameStates.Runner:
+                levelPanel.SetActive(true);
                 ActivateInGameUI();
                 break;
             case GameStateHandler.GameStates.Bouncer:
+                levelPanel.SetActive(false);
                 ActivateInGameUI();
                 break;
             case GameStateHandler.GameStates.Empty:
@@ -110,6 +115,41 @@ public class UIHandler: MonoBehaviour
     {
         GameSaveData.Instance.coinScore += 50;
         UpdateUICoinNumber(GameSaveData.Instance.coinScore);
+    }
+    public void LevelBarAnimation()
+    {
+        Debug.Log("lbAnim1");
+        StartCoroutine(ScaleUpAndDown());
+        
+    }
+    private IEnumerator ScaleUpAndDown()
+    {
+        Debug.Log("sc1");
+        Vector3 originalScale = levelPanel.transform.localScale;
+        Vector3 targetScale = new Vector3(originalScale.x + 0.1f, originalScale.y + 0.1f, originalScale.z);
+
+        float duration = 0.125f;
+        float elapsedTime = 0f;
+
+        // Scale Up
+        while (elapsedTime < duration / 2)
+        {
+            levelPanel.transform.localScale = Vector3.Lerp(originalScale, targetScale, elapsedTime / (duration / 2));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        levelPanel.transform.localScale = targetScale;
+
+        elapsedTime = 0f;
+
+        // Scale Down
+        while (elapsedTime < duration / 2)
+        {
+            levelPanel.transform.localScale = Vector3.Lerp(targetScale, originalScale, elapsedTime / (duration / 2));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        levelPanel.transform.localScale = originalScale;
     }
 }
 

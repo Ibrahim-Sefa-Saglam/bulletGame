@@ -1,13 +1,15 @@
+using System.Security.Cryptography;
 using Systems.RunnerSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
 {
+    public GameObject starPrefab;
     public GameObject InteractableObject { get ; set ; }
-    
     public Renderer[] componentRenderers;
-    private Color rgbColorValue = new Color(1, 1, 0); // Default to RGB(255, 255, 0) // 80 -> 200 red, 125 -> 0 green & blue 
+    private Color _rgbColorValue = new Color(1, 1, 0); // Default to RGB(255, 255, 0) // 80 -> 200 red, 125 -> 0 green & blue 
     public TextMeshProUGUI  numberText;
     public float dummyVal;
     public float dummyMaxVal = 400;
@@ -21,17 +23,14 @@ public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
     InteractableObject = gameObject;
     if(!exponantial){
      Initialize();
-     }      
+    }      
    
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(dummyVal<=0){
-            Destroy(gameObject);
-
-        }
+        
     }   
 
     void Initialize(){
@@ -80,26 +79,29 @@ public class Dummy_scr : MonoBehaviour, IBulletInteractable,IPlayerInteractable
     void HandleBulletCollision(IBullet bullet)
     {
         float bulletDamage = bullet.BulletInfo.Damage;
-     
-        dummyVal -= bulletDamage;
-        dummyVal = Mathf.Clamp(dummyVal, dummyMinVal, dummyMaxVal);
+        dummyVal = dummyVal - bulletDamage;
         
         numberText.text  = dummyVal.ToString();
     
         float redValue = dummyVal/dummyMaxVal * 120 + 80f;  
         float otherValues = (dummyMaxVal-dummyVal)/ dummyMaxVal * 125f + 80f;
         
-        rgbColorValue = new Color(redValue/225, otherValues/225,  otherValues/225); // RGB: (dynamic red, 255 green, 0 blue)
+        _rgbColorValue = new Color(redValue/225, otherValues/225,  otherValues/225); // RGB: (dynamic red, 255 green, 0 blue)
 
         foreach (Renderer item in componentRenderers)
         {            
             if (item.material.color != null)
             {
-                item.material.color = rgbColorValue;
+                item.material.color = _rgbColorValue;
             }
         }
+        if(dummyVal<=0){
+            GameObject newStar = Instantiate(starPrefab, transform.position, new(-90,0,90,0));
+            newStar.transform.SetParent(transform.parent, true);
+            Destroy(gameObject);
+        }
     }
-   public void InteractBullet(System.Action callback, IBullet bullet, out bool isDestroy)
+    public void InteractBullet(System.Action callback, IBullet bullet, out bool isDestroy)
     {
         isDestroy = false;
         if(bullet != null){

@@ -21,7 +21,7 @@ public class Add_bouncer_scr : MonoBehaviour
         
         
         gameData = GameSaveData.Instance;
-        bouncerData = gameData.BouncerDataList;
+        bouncerData = gameData.bouncerDataList;
         
         foreach (var data in bouncerData)
         {
@@ -37,7 +37,6 @@ public class Add_bouncer_scr : MonoBehaviour
     public void OnClick(){
 
         if(CoinScore < 50) return;
-        Debug.Log("is in");
         
         for(int i=0; i<BouncerCells.Length;i++){
             bool createBouncer = true;

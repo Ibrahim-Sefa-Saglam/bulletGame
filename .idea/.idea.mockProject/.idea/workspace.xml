@@ -5,16 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4981114f-80da-4a1c-bafa-2e181a6ae258" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Materials/starYellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Materials/starYellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Star.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Star/Star.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Star/Star.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Star/StarParticle.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Star/StarParticle.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Star/starblend.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Star/starblend.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Star.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Star.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/UIAssets/emptyLevelBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/UIAssets/emptyLevelBar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/UIAssets/filledLevelBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/UIAssets/filledLevelBar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/UIAssets/grayLevelBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/UIAssets/grayLevelBar.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mockProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Conveyer_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Conveyer_scr.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinParticle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinParticle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Coin/CoinPrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Camera_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/BouncerPrefabs/bouncer 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/BouncerPrefabs/bouncer 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/Add_bouncer_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/PanelBulletGenerator_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/PanelBulletGenerator_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/Management/GameStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/Management/GameStates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Dummy/dummy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Dummy/dummy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Runners/3D 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/RunnerPrefabs/Runners/3D 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Dummy_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Dummy_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Gate_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Gate_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/SaveSystem/GameSaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/SaveSystem/GameSaveData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/ShooterPrefabs/bullet/BulletParticle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/ShooterPrefabs/bullet/BulletParticle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/ShooterPrefabs/clipFiller.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/ShooterPrefabs/clipFiller.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Gun/Clip_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Gun/Clip_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Gun/Gun_scr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Gun/Gun_scr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/InGameUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/InGameUI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/UIHandler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/Prefabs/UIHandler.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Systems/UISystems/Scripts/UIHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Systems/UISystems/Scripts/UIHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +53,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Ibrahim-Sefa-Saglam"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Ibrahim-Sefa-Saglam/bulletGame",
+    "accountId": "6f735bf9-3711-42d8-8fee-f889dcd070a8"
+  }
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2d8783c7af0442318483a199a473c55b175e00/23/d477d04e/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2d8783c7af0442318483a199a473c55b175e00/29/a7659a27/Transform.cs" root0="FORCE_HIGHLIGHTING" />
@@ -44,6 +82,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Systems/BouncerSystem/Scripts/BouncerScripts/Bouncer_scr.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Systems/Management/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Coin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Star.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/BulletInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Bullet_scr.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Gun/Clip_scr.cs" root0="FORCE_HIGHLIGHTING" />
@@ -64,21 +103,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Standalone Player.Start Unity.executor&quot;: &quot;Run&quot;,
-    &quot;Standalone Player.Unit Tests (batch mode).executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;fixClip&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Standalone Player.Start Unity.executor": "Run",
+    "Standalone Player.Unit Tests (batch mode).executor": "Run",
+    "git-widget-placeholder": "levelBarFix",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Standalone Player.Unit Tests (batch mode)">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.37f1\Editor\Unity.exe" />
@@ -148,6 +187,9 @@
       <workItem from="1739196590787" duration="65000" />
       <workItem from="1739196834768" duration="1407000" />
       <workItem from="1739209919605" duration="1623000" />
+      <workItem from="1739342961888" duration="3809000" />
+      <workItem from="1739347529958" duration="1647000" />
+      <workItem from="1739349509054" duration="1308000" />
     </task>
     <task id="LOCAL-00001" summary="0">
       <option name="closed" value="true" />
@@ -200,26 +242,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Systems/ShooterSystem/Scripts/Gun/Gun_scr.cs</url>
-          <line>64</line>
+          <line>60</line>
           <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\ShooterSystem\Scripts\Gun\Gun_scr.cs" containingFunctionPresentation="Method 'FireFromClip'">
             <startOffsets>
-              <option value="1999" />
+              <option value="1956" />
             </startOffsets>
             <endOffsets>
-              <option value="2000" />
+              <option value="1957" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Systems/RunnerSystem/Scripts/Dummy_scr.cs</url>
-          <line>54</line>
-          <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\RunnerSystem\Scripts\Dummy_scr.cs" containingFunctionPresentation="Method 'InitializeDummy'">
+          <url>file://$PROJECT_DIR$/Assets/Systems/UISystems/Scripts/UIHandler.cs</url>
+          <line>98</line>
+          <properties documentPath="C:\Users\Ibrahim Sefa\mockProject\Assets\Systems\UISystems\Scripts\UIHandler.cs" containingFunctionPresentation="Method 'SetCanvas'">
             <startOffsets>
-              <option value="1738" />
+              <option value="3066" />
             </startOffsets>
             <endOffsets>
-              <option value="1745" />
+              <option value="3067" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="39" />

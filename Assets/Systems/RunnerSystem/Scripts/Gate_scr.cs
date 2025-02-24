@@ -149,14 +149,30 @@ public class GateScript : MonoBehaviour, IBulletInteractable, IPlayerInteractabl
 
         // Store original scale
         Vector3 originalScale = parentTransform.localScale;
+        Vector3 targetScale = new Vector3(originalScale.x, 1.25f, originalScale.z);
+    
+        float duration = 0.15f;
+        float elapsedTime = 0f;
 
-        // Increase Y scale to 1.1
-        parentTransform.localScale = new Vector3(originalScale.x, 1.1f, originalScale.z);
+        // Scale Up Smoothly
+        while (elapsedTime < duration)
+        {
+            parentTransform.localScale = Vector3.Lerp(originalScale, targetScale, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        parentTransform.localScale = targetScale;
 
-        // Wait for 0.15 seconds
-        yield return new WaitForSeconds(0.15f);
+        // Reset timer
+        elapsedTime = 0f;
 
-        // Reset Y scale back to 1
+        // Scale Down Smoothly
+        while (elapsedTime < duration)
+        {
+            parentTransform.localScale = Vector3.Lerp(targetScale, originalScale, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
         parentTransform.localScale = originalScale;
     }
     void HandlePlayerCollision(GameObject player)
