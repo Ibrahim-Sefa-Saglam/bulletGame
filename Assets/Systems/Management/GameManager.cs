@@ -49,7 +49,7 @@ public static class GameManager  // Manages Key Object generation and camera ori
     {
         _gameSaveData.exp += amount;
         if (_gameSaveData.exp >= _gameSaveData.bulletLevel * 20)
-        {
+        {   
             _gameSaveData.bulletLevel++;
             _gameSaveData.exp = 0;
         }

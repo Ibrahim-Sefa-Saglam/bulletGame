@@ -59,6 +59,8 @@ namespace Systems.SaveSystem
                 var file = JsonUtility.ToJson(this,true);
                 File.WriteAllText(Application.persistentDataPath + "/GameSaveData.json", file);
             }
+
+            Debug.Log(Application.persistentDataPath + "/GameSaveData.json");
         }
 
         public override SaveData Load()
